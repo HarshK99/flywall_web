@@ -1,7 +1,6 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import ProductShowcase from "./components/ProductShowcase";
-import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import AboutSection from "./components/AboutSection";
 import Footer from "./components/Footer";
@@ -15,8 +14,6 @@ export default function Home() {
         <Hero />
 
         <ProductShowcase />
-
-        <Testimonials />
 
         <FAQ />
 

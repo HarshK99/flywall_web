@@ -18,9 +18,9 @@ export default function Hero() {
     return (
         <section className="relative overflow-hidden">
             {/* Background carousel (no scrollbar) */}
-            <div className="absolute inset-0 z-0 h-full w-full overflow-hidden">
+            <div className="absolute inset-0 z-0 h-full w-full overflow-hidden no-scrollbar">
                 <div
-                    className="flex h-full w-full transition-transform duration-700"
+                    className="no-scrollbar flex h-full w-full transition-transform duration-700"
                     style={{ transform: `translateX(-${index * 100}%)`, width: `${images.length * 100}%` }}
                 >
                     {images.map((src, i) => (

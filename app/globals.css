@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #0b3d91; /* dark blue */
+  --primary-dark: #093375; /* darker for hover */
+  --secondary: #5fb3ff; /* light blue */
 }
 
 @theme inline {
@@ -10,6 +13,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+ 
 }
 
 @media (prefers-color-scheme: dark) {

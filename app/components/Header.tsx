@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Header() {
   const nav = [
@@ -13,8 +12,8 @@ export default function Header() {
     <header className="w-full border-b bg-white/60 backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <div className="h-10 w-40 overflow-hidden rounded-md bg-white/0 flex items-center">
-            <Image src="/logo.png" alt="Flywall logo" width={44} height={44} style={{ objectFit: 'contain' }} />
+            <div className="h-10 w-40 overflow-hidden rounded-md bg-white/0 flex items-center">
+              <img src="/logo.png" alt="Flywall logo" width={44} height={44} className="object-contain" />
           </div>
         </div>
 

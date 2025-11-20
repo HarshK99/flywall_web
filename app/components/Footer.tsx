@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -13,7 +11,7 @@ export default function Footer() {
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 overflow-hidden rounded-md bg-white/0">
-                <Image src="/logo.png" alt="Flywall logo" width={40} height={40} style={{ objectFit: 'contain' }} />
+                <img src="/logo.png" alt="Flywall logo" width={40} height={40} className="object-contain" />
               </div>
               <div>
                 <div className="font-semibold text-zinc-100">Flywall</div>

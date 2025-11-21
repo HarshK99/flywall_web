@@ -47,3 +47,79 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Global section defaults: consistent horizontal padding and centered titles */
+section {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+section h1,
+section h2,
+section h3 {
+  text-align: center;
+}
+
+/* Increase horizontal padding for Tailwind container used across sections.
+   Many components use `mx-auto max-w-7xl px-4` which beats a type selector.
+   Target that combination and use !important so it reliably increases the gap.
+*/
+.mx-auto.max-w-7xl.px-4,
+section.mx-auto.max-w-7xl.px-4,
+.max-w-7xl.px-4 {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+  .mx-auto.max-w-7xl.px-4,
+  section.mx-auto.max-w-7xl.px-4,
+  .max-w-7xl.px-4 {
+    padding-left: 10rem !important;
+    padding-right: 10rem !important;
+  }
+}
+
+/* Shared section background for alternating areas */
+.section-neutral {
+  background-color: #f8fafc; /* similar to Tailwind zinc-50 */
+}
+
+/* Reusable elevated card style used across the site */
+.card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.12);
+}
+
+/* Constrained readable text width for long paragraphs */
+.constrain-text {
+  max-width: 56ch; /* ~measure for comfortable reading */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Section title spacing to improve vertical rhythm */
+.section-title {
+  margin-bottom: 0.75rem;
+}
+
+/* Decorative separator (SVG) that sits under hero sections */
+.section-separator svg {
+  display: block;
+  width: 100%;
+  height: 64px;
+}
+

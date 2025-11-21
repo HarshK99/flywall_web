@@ -124,6 +124,8 @@ export default function Header() {
         <div className="flex items-center gap-4">
           {/* mobile logo: show on small screens where utility bar is hidden */}
           <Logo className="sm:hidden" size={scrolled ? 'h-7' : 'h-9'} />
+          {/* desktop logo for sticky header when scrolled */}
+          {scrolled && <Logo className="hidden sm:flex" size="h-7" />}
         </div>
 
         <NavLinks menu={menu} className="hidden lg:flex items-center gap-4 text-sm" dark={!scrolled} />
@@ -133,7 +135,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-zinc-700 hover:bg-zinc-100"
+            className={`lg:hidden inline-flex items-center justify-center rounded-md p-2 ${scrolled ? 'text-zinc-700 hover:bg-zinc-100' : 'text-white hover:bg-white/10'}`}
             aria-controls="mobile-menu"
             aria-expanded={open}
             onClick={() => setOpen((s) => !s)}

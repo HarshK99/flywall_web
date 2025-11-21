@@ -47,3 +47,42 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Global section defaults: consistent horizontal padding and centered titles */
+section {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+section h1,
+section h2,
+section h3 {
+  text-align: center;
+}
+
+/* Increase horizontal padding for Tailwind container used across sections.
+   Many components use `mx-auto max-w-7xl px-4` which beats a type selector.
+   Target that combination and use !important so it reliably increases the gap.
+*/
+.mx-auto.max-w-7xl.px-4,
+section.mx-auto.max-w-7xl.px-4,
+.max-w-7xl.px-4 {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+  .mx-auto.max-w-7xl.px-4,
+  section.mx-auto.max-w-7xl.px-4,
+  .max-w-7xl.px-4 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}

@@ -38,7 +38,7 @@ export default function Hero() {
             <div className="relative z-10 mx-auto max-w-7xl px-6 py-28 text-center lg:text-left">
                 <div className="lg:flex lg:items-center lg:justify-between">
                     <div className="max-w-2xl text-white">
-                        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+                        <h1 style={{ textAlign: 'left' }} className="text-left text-4xl font-extrabold tracking-tight sm:text-5xl">
                             uPVC Windows
                         </h1>
                         <p className="mt-4 text-lg">

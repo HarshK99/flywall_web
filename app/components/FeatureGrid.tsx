@@ -3,6 +3,7 @@
 import React from 'react';
 import { FaBolt, FaLeaf, FaAward, FaPaintBrush } from 'react-icons/fa';
 import { FEATURES } from '../config/siteText';
+import Card from './Card';
 
 export default function FeatureGrid() {
   // Use Font Awesome icons from react-icons/fa
@@ -23,20 +24,22 @@ export default function FeatureGrid() {
   };
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-6 md:py-10">
+    <section className="mx-auto max-w-7xl px-4 py-6 md:py-10 section-neutral">
       <div className="text-center">
-        <h2 className="text-2xl md:text-3xl font-extrabold">Advantage of Flywall Windows</h2>
+        <h2 className="text-2xl md:text-3xl font-extrabold section-title">Advantage of Flywall Windows</h2>
+        <p className="mt-2 text-zinc-600 constrain-text mx-auto">High-performance uPVC windows designed for energy efficiency, durability and modern aesthetics.</p>
       </div>
 
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
         {FEATURES.map((f) => {
           const key = f.icon ?? 'styles';
           return (
-            <article
-              key={f.title}
-              className="icon-box2 rounded-lg bg-white p-6 shadow-sm hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200 focus-within:ring-2 focus-within:ring-primary"
-              tabIndex={0}
-            >
+            <Card
+                as="article"
+                key={f.title}
+                className="p-6 focus-within:ring-2 focus-within:ring-primary"
+                tabIndex={0}
+              >
               <div className="mb-3 flex items-center justify-center">
                 <div className="h-12 w-12 rounded-full bg-primary text-white flex items-center justify-center">
                   <Icon name={key} />
@@ -45,7 +48,7 @@ export default function FeatureGrid() {
 
               <h4 className="text-center font-semibold text-lg">{f.title}</h4>
               <p className="mt-3 text-sm text-zinc-600 text-center">{f.desc}</p>
-            </article>
+            </Card>
           );
         })}
       </div>

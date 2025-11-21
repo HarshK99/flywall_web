@@ -16,13 +16,12 @@ export default function Header() {
   ];
 
   return (
-    <header className="w-full border-b bg-white/80 backdrop-blur-sm">
-      {/* non-sticky header content - hide when scrolled */}
-      <div className={`${scrolled ? 'opacity-0 pointer-events-none -translate-y-2' : 'opacity-100 translate-y-0'} transition-all duration-200 ease-in-out`}
-        aria-hidden={scrolled}
-      >
+    <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm relative">
+      {/* non-sticky header content - render only when not scrolled to avoid leftover block */}
+      {!scrolled && (
+        <>
       {/* Top utility bar */}
-      <div className="bg-zinc-50 text-zinc-700">
+      <div className="hidden sm:block bg-zinc-50 text-zinc-700">
         <div className="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
           <div className="flex items-center gap-4">
             {/* Logo moved into the utility bar */}
@@ -41,13 +40,15 @@ export default function Header() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
 
       {/* Primary nav */}
       <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          {/* logo removed from primary nav - it's in the utility bar now */}
-
+          {/* mobile logo: show on small screens where utility bar is hidden */}
+          <Link href="/" className="flex items-center gap-3 sm:hidden">
+            <img src="/logo.png" alt="Flywall logo" className="h-10 w-auto object-contain" />
+          </Link>
           {/* trust badge removed per request */}
         </div>
 
@@ -117,12 +118,11 @@ export default function Header() {
           </div>
         </div>
       </div>
-
-      </div>
+      </>)}
 
       {/* Compact sticky header shown on scroll */}
         {scrolled && (
-          <div className="fixed inset-x-0 top-0 z-50 border-b bg-white/90 backdrop-blur-sm">
+          <div className="absolute inset-x-0 top-0 z-50 border-b bg-white/90 backdrop-blur-sm">
             <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
               <Link href="/" className="flex items-center gap-3">
                 <img src="/logo.png" alt="Flywall logo" className="h-8 w-auto object-contain" />

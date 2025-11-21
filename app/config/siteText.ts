@@ -1,8 +1,8 @@
 // Centralized site text config (header + footer + shared strings)
 export const LOGO_ALT = 'Flywall logo';
 
-export const CONTACT_EMAIL = 'info@flywall.example';
-export const CONTACT_PHONE = '+91 98765 43210';
+export const CONTACT_EMAIL = 'support@flywall.com';
+export const CONTACT_PHONE = '+91 9434577875';
 export const TOLL_FREE = '1800-123-456';
 
 export const CTA_SCHEDULE = 'Schedule a Demo';
@@ -27,7 +27,7 @@ export const FOOTER_BRAND = 'Flywall';
 export const FOOTER_TAGLINE = 'North East trusted source for uPVC windows and doors';
 export const FOOTER_PHONE_1 = '+91 9434577875';
 export const FOOTER_PHONE_2 = '+91 5465465467';
-export const FOOTER_SUPPORT_EMAIL = 'support@flywall.example';
+export const FOOTER_SUPPORT_EMAIL = 'support@flywall.com';
 
 // Hero
 export const HERO_TITLE = 'uPVC Windows';
@@ -48,11 +48,11 @@ export const ABOUT_DESC = 'Flywall is India\'s largest manufacturer & supplier o
 'We are one of the most trusted uPVC brands used by Real Estate Firms globally. Our wide range of uPVC Windows & Doors is available with coloured texture options, including wood finishes.';
 
 // Feature grid
-export const FEATURES: { title: string; desc: string }[] = [
-  { title: 'Energy-efficient & Sustainable', desc: 'Designed to reduce heat loss and lower energy bills using high-performance uPVC profiles.' },
-  { title: '100% Lead-free, UV-resistant', desc: 'Profiles are lead-free and engineered to withstand UV exposure without yellowing or warping.' },
-  { title: 'Certified by SKZ Germany', desc: 'Manufactured and tested to European standards with SKZ certification for quality assurance.' },
-  { title: 'Styles & Finishes', desc: 'Wide selection of styles and finishes, including realistic wood textures and custom colors.' },
+export const FEATURES: { title: string; desc: string; icon?: string }[] = [
+  { title: 'Energy-efficient & Sustainable', desc: 'Designed to reduce heat loss and lower energy bills using high-performance uPVC profiles.', icon: 'energy' },
+  { title: '100% Lead-free, UV-resistant', desc: 'Profiles are lead-free and engineered to withstand UV exposure without yellowing or warping.', icon: 'leadfree' },
+  { title: 'Certified by SKZ Germany', desc: 'Manufactured and tested to European standards with SKZ certification for quality assurance.', icon: 'certified' },
+  { title: 'Styles & Finishes', desc: 'Wide selection of styles and finishes, including realistic wood textures and custom colors.', icon: 'styles' },
 ];
 
 // Product gallery
@@ -77,11 +77,11 @@ export const TRUST_YEARS = '25+ Years Experience';
 export const TRUST_CAPACITY = 'Production Capacity: 100k units/year';
 
 // Benefits
-export const BENEFITS: { title: string; desc: string; icon: string }[] = [
-  { title: 'Soundproofing', desc: 'Minimizes external noise for a quieter home', icon: '🔇' },
-  { title: 'Security', desc: 'Multi-point locking systems for enhanced protection', icon: '🔐' },
-  { title: 'Low Maintenance', desc: 'uPVC profiles that require minimal upkeep', icon: '🧽' },
-  { title: 'Indoor Air Quality', desc: 'Sealed systems that support healthy indoor air', icon: '🌿' },
+export const BENEFITS: { title: string; desc: string; icon?: string }[] = [
+  { title: 'Soundproofing', desc: 'Minimizes external noise for a quieter home', icon: 'headphones' },
+  { title: 'Security', desc: 'Multi-point locking systems for enhanced protection', icon: 'lock' },
+  { title: 'Low Maintenance', desc: 'uPVC profiles that require minimal upkeep', icon: 'tools' },
+  { title: 'Indoor Air Quality', desc: 'Sealed systems that support healthy indoor air', icon: 'leaf' },
 ];
 
 // Site metadata

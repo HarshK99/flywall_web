@@ -44,9 +44,7 @@ function CTAs({ dark = false }: { dark?: boolean }) {
         <a href="#schedule" className="hidden md:inline-block rounded-md border border-white bg-transparent px-3 py-2 text-sm font-semibold text-white hover:bg-white/5 transition-colors duration-200">
           {CTA_SCHEDULE}
         </a>
-        <a href="#callback" className="hidden md:inline-block rounded-md bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm hover:brightness-95 transition-colors duration-200">
-          {CTA_CALLBACK}
-        </a>
+       
       </>
     );
   }
@@ -55,9 +53,6 @@ function CTAs({ dark = false }: { dark?: boolean }) {
     <>
       <a href="#schedule" className="hidden md:inline-block rounded-md border border-primary bg-white px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors duration-200">
         {CTA_SCHEDULE}
-      </a>
-      <a href="#callback" className="hidden md:inline-block rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark transition-colors duration-200">
-        {CTA_CALLBACK}
       </a>
     </>
   );

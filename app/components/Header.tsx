@@ -83,11 +83,8 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm relative">
-      {/* non-sticky header content - render only when not scrolled to avoid leftover block */}
-      {!scrolled && (
-        <>
-      {/* Top utility bar */}
-      <div className="hidden sm:block bg-zinc-50 text-zinc-700">
+      {/* Top utility bar: hidden smoothly when scrolled to avoid flicker/layout jumps */}
+      <div className={`hidden sm:block bg-zinc-50 text-zinc-700 transition-all duration-200 ease-in-out overflow-hidden ${scrolled ? 'opacity-0 -translate-y-2 max-h-0 pointer-events-none' : 'opacity-100 translate-y-0 max-h-40'}`}>
         <div className="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
           <div className="flex items-center gap-4">
             {/* Logo moved into the utility bar */}
@@ -106,11 +103,11 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Primary nav */}
-      <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
+      {/* Primary nav: we keep this in the DOM and adjust padding/logo size to avoid layout jumps */}
+      <div className={`mx-auto max-w-7xl px-4 ${scrolled ? 'py-2' : 'py-4'} flex items-center justify-between transition-all duration-200`}>
         <div className="flex items-center gap-4">
           {/* mobile logo: show on small screens where utility bar is hidden */}
-          <Logo className="sm:hidden" size="h-10" />
+          <Logo className="sm:hidden" size={scrolled ? 'h-8' : 'h-10'} />
         </div>
 
         <NavLinks menu={menu} className="hidden lg:flex items-center gap-6 text-sm" />
@@ -141,28 +138,6 @@ export default function Header() {
 
       {/* Mobile menu panel (componentized) */}
       <MobileMenu menu={menu} open={open} setOpen={setOpen} />
-      </>)}
-
-      {/* Compact sticky header shown on scroll */}
-      {scrolled && (
-        <div className="absolute inset-x-0 top-0 z-50 border-b bg-white/90 backdrop-blur-sm">
-          <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-            <Logo size="h-8" />
-
-            <NavLinks menu={menu} className="hidden lg:flex items-center gap-6 text-sm" />
-
-            <div className="flex items-center gap-3">
-              <CTAs />
-              <button className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-zinc-700 hover:bg-zinc-100" onClick={() => setOpen((s) => !s)}>
-                <span className="sr-only">Toggle menu</span>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
       </header>
   );
 }

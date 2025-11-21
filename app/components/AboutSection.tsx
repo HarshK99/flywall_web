@@ -3,7 +3,7 @@ export default function AboutSection() {
     <section className="mx-auto max-w-7xl px-6 py-12">
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-center">
         <div>
-          <h3 className="text-2xl font-semibold text-zinc-900">About Flywall uPVC Windows</h3>
+          <h3 className="text-2xl font-semibold text-zinc-900">About Us</h3>
           <p className="mt-4 text-zinc-700">
             Flywall uPVC windows are engineered for longevity. Key features
             include enhanced durability to withstand weathering, excellent

@@ -3,6 +3,72 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+// Small internal helpers to reduce duplication
+function Logo({ className = '', size = 'h-8' }: { className?: string; size?: string }) {
+  return (
+    <Link href="/" className={className}>
+      <img src="/logo.png" alt="Flywall logo" className={`${size} w-auto object-contain`} />
+    </Link>
+  );
+}
+
+function NavLinks({ menu, className = '', onClick }: { menu: { label: string; href: string }[]; className?: string; onClick?: () => void }) {
+  return (
+    <nav className={className}>
+      {menu.map((m) => (
+        <Link key={m.label} href={m.href} onClick={onClick} className="text-zinc-700 hover:text-zinc-900">
+          {m.label}
+        </Link>
+      ))}
+    </nav>
+  );
+}
+
+function CTAs() {
+  return (
+    <>
+      <a href="#schedule" className="hidden md:inline-block rounded-md border border-primary bg-white px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/5">
+        Schedule a Demo
+      </a>
+      <a href="#callback" className="hidden md:inline-block rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark">
+        Request a Callback
+      </a>
+    </>
+  );
+}
+
+function MobileMenu({ menu, open, setOpen }: { menu: { label: string; href: string }[]; open: boolean; setOpen: (v: boolean) => void }) {
+  return (
+    <div id="mobile-menu" className={`${open ? 'block' : 'hidden'} lg:hidden border-t bg-white`}>
+      <div className="mx-auto max-w-7xl px-4 py-4 space-y-3">
+        <div className="flex flex-col gap-2">
+          {menu.map((m) => (
+            <Link key={m.label} href={m.href} onClick={() => setOpen(false)} className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50">
+              {m.label}
+            </Link>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-2 pt-2">
+          <a href="#schedule" className="block rounded-md border border-primary px-3 py-2 text-center text-sm font-semibold text-primary">Schedule a Demo</a>
+          <a href="#callback" className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white">Request a Callback</a>
+        </div>
+
+        <div className="pt-3 border-t flex items-center justify-between text-sm text-zinc-600">
+          <div>
+            <a href="mailto:info@flywall.example" className="text-sm text-zinc-600 hover:text-zinc-900">info@flywall.example</a>
+          </div>
+          <div className="text-right">
+            <div>Contact</div>
+            <a href="tel:+919876543210" className="font-semibold text-zinc-900">+91 98765 43210</a>
+            <div className="text-xs text-zinc-500">Toll Free: <a href="tel:1800123456" className="font-semibold text-zinc-900">1800-123-456</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const scrolled = useScrollThreshold(80);
@@ -25,9 +91,7 @@ export default function Header() {
         <div className="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
           <div className="flex items-center gap-4">
             {/* Logo moved into the utility bar */}
-            <Link href="/" className="flex items-center gap-3">
-              <img src="/logo.png" alt="Flywall logo" className="h-8 w-auto object-contain" />
-            </Link>
+            <Logo className="flex items-center gap-3" size="h-8" />
           </div>
 
           <div className="flex items-center gap-4">
@@ -40,34 +104,19 @@ export default function Header() {
             </div>
           </div>
         </div>
-        </div>
+      </div>
 
       {/* Primary nav */}
       <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           {/* mobile logo: show on small screens where utility bar is hidden */}
-          <Link href="/" className="flex items-center gap-3 sm:hidden">
-            <img src="/logo.png" alt="Flywall logo" className="h-10 w-auto object-contain" />
-          </Link>
-          {/* trust badge removed per request */}
+          <Logo className="sm:hidden" size="h-10" />
         </div>
 
-        <nav className="hidden lg:flex items-center gap-6 text-sm">
-          {menu.map((m) => (
-            <Link key={m.label} href={m.href} className="text-zinc-700 hover:text-zinc-900">
-              {m.label}
-            </Link>
-          ))}
-        </nav>
+        <NavLinks menu={menu} className="hidden lg:flex items-center gap-6 text-sm" />
 
         <div className="flex items-center gap-3">
-          <a href="#schedule" className="hidden md:inline-block rounded-md border border-primary bg-white px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/5">
-            Schedule a Demo
-          </a>
-
-          <a href="#callback" className="hidden md:inline-block rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark">
-            Request a Callback
-          </a>
+          <CTAs />
 
           {/* Mobile menu button */}
           <button
@@ -90,64 +139,30 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu panel */}
-      <div id="mobile-menu" className={`${open ? 'block' : 'hidden'} lg:hidden border-t bg-white`}>
-        <div className="mx-auto max-w-7xl px-4 py-4 space-y-3">
-          <div className="flex flex-col gap-2">
-            {menu.map((m) => (
-              <Link key={m.label} href={m.href} onClick={() => setOpen(false)} className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50">
-                {m.label}
-              </Link>
-            ))}
-          </div>
-
-          <div className="flex flex-col gap-2 pt-2">
-            <a href="#schedule" className="block rounded-md border border-primary px-3 py-2 text-center text-sm font-semibold text-primary">Schedule a Demo</a>
-            <a href="#callback" className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white">Request a Callback</a>
-          </div>
-
-          <div className="pt-3 border-t flex items-center justify-between text-sm text-zinc-600">
-            <div>
-              <a href="mailto:info@flywall.example" className="text-sm text-zinc-600 hover:text-zinc-900">info@flywall.example</a>
-            </div>
-            <div className="text-right">
-              <div>Contact</div>
-              <a href="tel:+919876543210" className="font-semibold text-zinc-900">+91 98765 43210</a>
-              <div className="text-xs text-zinc-500">Toll Free: <a href="tel:1800123456" className="font-semibold text-zinc-900">1800-123-456</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Mobile menu panel (componentized) */}
+      <MobileMenu menu={menu} open={open} setOpen={setOpen} />
       </>)}
 
       {/* Compact sticky header shown on scroll */}
-        {scrolled && (
-          <div className="absolute inset-x-0 top-0 z-50 border-b bg-white/90 backdrop-blur-sm">
-            <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-              <Link href="/" className="flex items-center gap-3">
-                <img src="/logo.png" alt="Flywall logo" className="h-8 w-auto object-contain" />
-              </Link>
+      {scrolled && (
+        <div className="absolute inset-x-0 top-0 z-50 border-b bg-white/90 backdrop-blur-sm">
+          <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+            <Logo size="h-8" />
 
-              <nav className="hidden lg:flex items-center gap-6 text-sm">
-                {menu.map((m) => (
-                  <Link key={m.label} href={m.href} className="text-zinc-700 hover:text-zinc-900">
-                    {m.label}
-                  </Link>
-                ))}
-              </nav>
+            <NavLinks menu={menu} className="hidden lg:flex items-center gap-6 text-sm" />
 
-              <div className="flex items-center gap-3">
-                <a href="#callback" className="hidden md:inline-block rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark">Request a Callback</a>
-                <button className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-zinc-700 hover:bg-zinc-100" onClick={() => setOpen((s) => !s)}>
-                  <span className="sr-only">Toggle menu</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                </button>
-              </div>
+            <div className="flex items-center gap-3">
+              <CTAs />
+              <button className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-zinc-700 hover:bg-zinc-100" onClick={() => setOpen((s) => !s)}>
+                <span className="sr-only">Toggle menu</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
             </div>
           </div>
-        )}
+        </div>
+      )}
       </header>
   );
 }

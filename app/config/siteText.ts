@@ -38,9 +38,14 @@ every scale.`;
 export const HERO_EXPLORE_LABEL = 'Explore More';
 export const HERO_REQUEST_LABEL = 'Request Consultation';
 
+// CTA
+export const CTA_INTRO = 'Click To Schedule A One To One Demo With Our Team';
+
 // Hero Intro
-export const INTRO_TITLE = 'Prominance uPVC Windows & Doors';
-export const INTRO_DESC = 'Energy-efficient, durable, and European-grade quality for modern homes — engineered for comfort, security and low maintenance.';
+export const ABOUT_TITLE = 'Flywall uPVC Windows & Doors';
+export const ABOUT_DESC = 'Flywall is India\'s largest manufacturer & supplier of energy-efficient uPVC Windows & uPVC Doors. We source the finest grade of raw material from European Fortune 500 companies. The optimised production process outputs 100% lead-free & durable uPVC profiles for the Indian climate. Our uPVC window and door systems, subjected to 25000+ hours of extreme weather, ensure excellence. We have received certifications from Global Labs SKZ – Germany. Flywall uPVC Window & Door Systems surpass European quality standards in all mechanical property tests'+
+
+'We are one of the most trusted uPVC brands used by Real Estate Firms globally. Our wide range of uPVC Windows & Doors is available with coloured texture options, including wood finishes.';
 
 // Feature grid
 export const FEATURES: { title: string; desc: string }[] = [
@@ -54,16 +59,16 @@ export const FEATURES: { title: string; desc: string }[] = [
 export const PRODUCT_WINDOWS_TITLE = 'Window Types';
 export const PRODUCT_DOORS_TITLE = 'Door Types';
 export const PRODUCT_WINDOWS: { label: string; img: string }[] = [
-  { label: 'Casement', img: '/products_styles/casement.jpg' },
-  { label: 'Sliding', img: '/products_styles/sliding.jpg' },
-  { label: 'Tilt & Turn', img: '/products_styles/tiltturn.jpg' },
-  { label: 'Slide & Fold', img: '/products_styles/slidefold.jpg' },
+  { label: 'Casement', img: '/products_styles/1.jpg' },
+  { label: 'Sliding', img: '/products_styles/2.jpg' },
+  { label: 'Tilt & Turn', img: '/products_styles/1.jpg' },
+  { label: 'Slide & Fold', img: '/products_styles/2.jpg' },
 ];
 export const PRODUCT_DOORS: { label: string; img: string }[] = [
-  { label: 'Entrance Door', img: '/products_styles/door_entrance.jpg' },
-  { label: 'Patio Sliding', img: '/products_styles/door_sliding.jpg' },
-  { label: 'Bi-fold Door', img: '/products_styles/door_bifold.jpg' },
-  { label: 'French Door', img: '/products_styles/door_french.jpg' },
+  { label: 'Entrance Door', img: '/products_styles/1.jpg' },
+  { label: 'Patio Sliding', img: '/products_styles/2.jpg' },
+  { label: 'Bi-fold Door', img: '/products_styles/1.jpg' },
+  { label: 'French Door', img: '/products_styles/2.jpg' },
 ];
 
 // Trust signals
@@ -88,6 +93,10 @@ export const SOCIAL_LINKS: { name: string; href: string }[] = [
   { name: 'Facebook', href: 'https://www.facebook.com/flywall' },
   { name: 'Instagram', href: 'https://www.instagram.com/flywall' },
 ];
+// Contact / Support copy
+export const CONTACT_HEADLINE = 'Get in Touch With Us';
+export const CONTACT_SUBTEXT = 'Our team is ready to answer your queries and provide tailored solutions.';
+export const CONTACT_FAX = '(033) 1234 5678';
 
 export default {
   LOGO_ALT,
@@ -108,5 +117,9 @@ export default {
   FOOTER_PHONE_2,
   FOOTER_SUPPORT_EMAIL,
   SOCIAL_LINKS,
+  CTA_INTRO,
+  CONTACT_HEADLINE,
+  CONTACT_SUBTEXT,
+  CONTACT_FAX,
 };
 

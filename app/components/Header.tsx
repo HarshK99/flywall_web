@@ -12,11 +12,14 @@ function Logo({ className = '', size = 'h-8' }: { className?: string; size?: str
   );
 }
 
-function NavLinks({ menu, className = '', onClick }: { menu: { label: string; href: string }[]; className?: string; onClick?: () => void }) {
+function NavLinks({ menu, className = '', onClick, dark = false }: { menu: { label: string; href: string }[]; className?: string; onClick?: () => void; dark?: boolean }) {
+  const base = 'uppercase tracking-wide text-sm font-medium px-2 py-0.5 rounded transition-colors duration-200';
+  const darkStyles = 'text-white hover:bg-white/6 hover:text-primary';
+  const lightStyles = 'text-zinc-700 hover:bg-zinc-100 hover:text-primary';
   return (
     <nav className={className}>
       {menu.map((m) => (
-        <Link key={m.label} href={m.href} onClick={onClick} className="text-zinc-700 hover:text-zinc-900">
+        <Link key={m.label} href={m.href} onClick={onClick} className={`${base} ${dark ? darkStyles : lightStyles}`}>
           {m.label}
         </Link>
       ))}
@@ -24,13 +27,26 @@ function NavLinks({ menu, className = '', onClick }: { menu: { label: string; hr
   );
 }
 
-function CTAs() {
+function CTAs({ dark = false }: { dark?: boolean }) {
+  if (dark) {
+    return (
+      <>
+        <a href="#schedule" className="hidden md:inline-block rounded-md border border-white bg-transparent px-3 py-2 text-sm font-semibold text-white hover:bg-white/5 transition-colors duration-200">
+          Schedule a Demo
+        </a>
+        <a href="#callback" className="hidden md:inline-block rounded-md bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm hover:brightness-95 transition-colors duration-200">
+          Request a Callback
+        </a>
+      </>
+    );
+  }
+
   return (
     <>
-      <a href="#schedule" className="hidden md:inline-block rounded-md border border-primary bg-white px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/5">
+      <a href="#schedule" className="hidden md:inline-block rounded-md border border-primary bg-white px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors duration-200">
         Schedule a Demo
       </a>
-      <a href="#callback" className="hidden md:inline-block rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark">
+      <a href="#callback" className="hidden md:inline-block rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark transition-colors duration-200">
         Request a Callback
       </a>
     </>
@@ -43,7 +59,7 @@ function MobileMenu({ menu, open, setOpen }: { menu: { label: string; href: stri
       <div className="mx-auto max-w-7xl px-4 py-4 space-y-3">
         <div className="flex flex-col gap-2">
           {menu.map((m) => (
-            <Link key={m.label} href={m.href} onClick={() => setOpen(false)} className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50">
+            <Link key={m.label} href={m.href} onClick={() => setOpen(false)} className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50 hover:text-primary uppercase tracking-wide transition-colors duration-150">
               {m.label}
             </Link>
           ))}
@@ -82,7 +98,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm relative">
+    <header className={`sticky top-0 z-50 w-full backdrop-blur-sm relative ${scrolled ? 'bg-white/90 border-b' : 'bg-transparent border-b-0'}`}>
       {/* Top utility bar: hidden smoothly when scrolled to avoid flicker/layout jumps */}
       <div className={`hidden sm:block bg-zinc-50 text-zinc-700 transition-all duration-200 ease-in-out overflow-hidden ${scrolled ? 'opacity-0 -translate-y-2 max-h-0 pointer-events-none' : 'opacity-100 translate-y-0 max-h-40'}`}>
         <div className="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
@@ -104,16 +120,16 @@ export default function Header() {
       </div>
 
       {/* Primary nav: we keep this in the DOM and adjust padding/logo size to avoid layout jumps */}
-      <div className={`mx-auto max-w-7xl px-4 ${scrolled ? 'py-2' : 'py-4'} flex items-center justify-between transition-all duration-200`}>
+      <div className={`mx-auto max-w-7xl px-4 ${scrolled ? 'py-1' : 'py-3'} flex items-center justify-between transition-all duration-200 ${scrolled ? 'text-zinc-700' : 'bg-zinc-900 text-white'}`}>
         <div className="flex items-center gap-4">
           {/* mobile logo: show on small screens where utility bar is hidden */}
-          <Logo className="sm:hidden" size={scrolled ? 'h-8' : 'h-10'} />
+          <Logo className="sm:hidden" size={scrolled ? 'h-7' : 'h-9'} />
         </div>
 
-        <NavLinks menu={menu} className="hidden lg:flex items-center gap-6 text-sm" />
+        <NavLinks menu={menu} className="hidden lg:flex items-center gap-4 text-sm" dark={!scrolled} />
 
         <div className="flex items-center gap-3">
-          <CTAs />
+          <CTAs dark={!scrolled} />
 
           {/* Mobile menu button */}
           <button

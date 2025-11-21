@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react';
+import { PRODUCT_WINDOWS_TITLE, PRODUCT_DOORS_TITLE, PRODUCT_WINDOWS, PRODUCT_DOORS } from '../config/siteText';
 
 type Item = { label: string; img: string };
 
@@ -23,24 +24,10 @@ function ProductGrid({ title, items }: { title: string; items: Item[] }) {
 }
 
 export default function ProductGallery() {
-  const windowItems: Item[] = [
-    { label: 'Casement', img: '/products_styles/casement.jpg' },
-    { label: 'Sliding', img: '/products_styles/sliding.jpg' },
-    { label: 'Tilt & Turn', img: '/products_styles/tiltturn.jpg' },
-    { label: 'Slide & Fold', img: '/products_styles/slidefold.jpg' },
-  ];
-
-  const doorItems: Item[] = [
-    { label: 'Entrance Door', img: '/products_styles/door_entrance.jpg' },
-    { label: 'Patio Sliding', img: '/products_styles/door_sliding.jpg' },
-    { label: 'Bi-fold Door', img: '/products_styles/door_bifold.jpg' },
-    { label: 'French Door', img: '/products_styles/door_french.jpg' },
-  ];
-
   return (
     <div>
-      <ProductGrid title="Window Types" items={windowItems} />
-      <ProductGrid title="Door Types" items={doorItems} />
+      <ProductGrid title={PRODUCT_WINDOWS_TITLE} items={PRODUCT_WINDOWS} />
+      <ProductGrid title={PRODUCT_DOORS_TITLE} items={PRODUCT_DOORS} />
     </div>
   );
 }

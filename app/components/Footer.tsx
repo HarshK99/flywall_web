@@ -1,5 +1,17 @@
 "use client";
 
+import {
+  FOOTER_BRAND,
+  FOOTER_TAGLINE,
+  FOOTER_MAP_QUERY,
+  FOOTER_ADDRESS,
+  FOOTER_PHONE_1,
+  FOOTER_PHONE_2,
+  FOOTER_SUPPORT_EMAIL,
+  FOOTER_COPYRIGHT,
+  LOGO_ALT,
+} from "../config/siteText";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -11,11 +23,11 @@ export default function Footer() {
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 overflow-hidden rounded-md bg-white/0">
-                <img src="/logo.png" alt="Flywall logo" width={40} height={40} className="object-contain" />
+                <img src="/logo.png" alt={LOGO_ALT} width={40} height={40} className="object-contain" />
               </div>
               <div>
-                <div className="font-semibold text-zinc-100">Flywall</div>
-                <div className="text-sm text-zinc-300">North East trusted source for uPVC windows and doors</div>
+                <div className="font-semibold text-zinc-100">{FOOTER_BRAND}</div>
+                <div className="text-sm text-zinc-300">{FOOTER_TAGLINE}</div>
               </div>
             </div>
           </div>
@@ -25,9 +37,7 @@ export default function Footer() {
             <h4 className="font-semibold text-zinc-100">Address</h4>
             <div className="mt-3 text-sm">
               <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                  "NORTH EAST FIBER, bor road, near raju parking, guwahati, 781035"
-                )}`}
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(FOOTER_MAP_QUERY)}`}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="inline-flex items-start gap-2 text-zinc-300 hover:text-zinc-100"
@@ -35,7 +45,7 @@ export default function Footer() {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 flex-shrink-0 text-zinc-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
                 </svg>
-                <span>NORTH EAST FIBER, bor road, near raju parking, guwahati, 781035</span>
+                <span>{FOOTER_ADDRESS}</span>
               </a>
             </div>
           </div>
@@ -45,27 +55,27 @@ export default function Footer() {
             <h4 className="font-semibold text-zinc-100">Contact</h4>
             <div className="mt-3 text-sm text-zinc-300 space-y-2">
               <div>
-                <a href="tel:+919434577875" className="inline-flex items-center gap-2 text-zinc-300 hover:text-zinc-100">
+                <a href={`tel:${FOOTER_PHONE_1.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-zinc-300 hover:text-zinc-100">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 flex-shrink-0 text-zinc-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.25 1.01l-2.2 2.21z" />
                   </svg>
-                  <span>+91 9434577875</span>
+                  <span>{FOOTER_PHONE_1}</span>
                 </a>
               </div>
               <div>
-                <a href="tel:+915465465467" className="inline-flex items-center gap-2 text-zinc-300 hover:text-zinc-100">
+                <a href={`tel:${FOOTER_PHONE_2.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-zinc-300 hover:text-zinc-100">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 flex-shrink-0 text-zinc-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.25 1.01l-2.2 2.21z" />
                   </svg>
-                  <span>+91 5465465467</span>
+                  <span>{FOOTER_PHONE_2}</span>
                 </a>
               </div>
               <div>
-                <a href="mailto:support@flywall.example" className="inline-flex items-center gap-2 text-zinc-300 hover:text-zinc-100">
+                <a href={`mailto:${FOOTER_SUPPORT_EMAIL}`} className="inline-flex items-center gap-2 text-zinc-300 hover:text-zinc-100">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 flex-shrink-0 text-zinc-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                   </svg>
-                  <span>support@flywall.example</span>
+                  <span>{FOOTER_SUPPORT_EMAIL}</span>
                 </a>
               </div>
             </div>
@@ -73,7 +83,7 @@ export default function Footer() {
 
         </div>
 
-        <div className="mt-8 text-center text-xs text-zinc-500">© {year}. Flywall</div>
+        <div className="mt-8 text-center text-xs text-zinc-500">{FOOTER_COPYRIGHT.replace('2025', String(year))}</div>
       </div>
     </footer>
   );

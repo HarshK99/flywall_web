@@ -12,9 +12,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import { SITE_TITLE, SITE_DESCRIPTION } from './config/siteText';
+
 export const metadata: Metadata = {
-  title: "Flywall - Premium uPVC Windows and Doors for Modern Homes",
-  description: "Premium uPVC Windows and Doors for Modern Homes",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   icons: {
     icon: "/logo.png",
   },

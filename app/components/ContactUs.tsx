@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react';
-import { CONTACT_EMAIL, TOLL_FREE, CONTACT_PHONE, FOOTER_ADDRESS } from '../config/siteText';
+import { CONTACT_EMAIL, CONTACT_PHONE_2, CONTACT_PHONE_1, FOOTER_ADDRESS } from '../config/siteText';
 import ContactForm from './ContactForm';
 import Card from './Card';
 
@@ -22,8 +22,8 @@ export default function ContactUs() {
           <Card className="p-6">
             <h3 className="text-lg font-semibold">Contact Details</h3>
             <div className="mt-3 space-y-2">
-              <div>Toll-Free: <a href={`tel:${TOLL_FREE.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{TOLL_FREE}</a></div>
-              <div>Direct: <a href={`tel:${CONTACT_PHONE.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{CONTACT_PHONE}</a></div>
+              <div>Toll-Free: <a href={`tel:${CONTACT_PHONE_2.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{CONTACT_PHONE_2}</a></div>
+              <div>Direct: <a href={`tel:${CONTACT_PHONE_1.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{CONTACT_PHONE_1}</a></div>
               <div>Email: <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-zinc-900">{CONTACT_EMAIL}</a></div>
               <div>Fax: <span className="text-zinc-600">(033) 1234 5678</span></div>
 

@@ -5,8 +5,8 @@ import Link from "next/link";
 import {
   MENU,
   CONTACT_EMAIL,
-  CONTACT_PHONE,
-  TOLL_FREE,
+  CONTACT_PHONE_1,
+  CONTACT_PHONE_2,
   CTA_SCHEDULE,
   CTA_CALLBACK,
   LOGO_ALT,
@@ -81,8 +81,8 @@ function MobileMenu({ menu, open, setOpen }: { menu: { label: string; href: stri
           </div>
           <div className="text-right">
             <div>Contact</div>
-            <a href={`tel:${CONTACT_PHONE.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{CONTACT_PHONE}</a>
-            <div className="text-xs text-zinc-500">Toll Free: <a href={`tel:${TOLL_FREE.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{TOLL_FREE}</a></div>
+            <a href={`tel:${CONTACT_PHONE_1.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{CONTACT_PHONE_1}</a>
+            <div className="text-xs text-zinc-500">Toll Free: <a href={`tel:${CONTACT_PHONE_2.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{CONTACT_PHONE_2}</a></div>
           </div>
         </div>
       </div>
@@ -109,9 +109,9 @@ export default function Header() {
             <div className="flex items-center gap-3 text-sm">
                 <a href={`mailto:${CONTACT_EMAIL}`} className="text-sm text-zinc-600 hover:text-zinc-900">{CONTACT_EMAIL}</a>
                 <span className="text-zinc-400">|</span>
-                <a href={`tel:${CONTACT_PHONE.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{CONTACT_PHONE}</a>
+                <a href={`tel:${CONTACT_PHONE_1.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{CONTACT_PHONE_1}</a>
                 <span className="hidden sm:inline text-zinc-400">|</span>
-                <span className="hidden sm:inline text-sm">Toll Free: <a href={`tel:${TOLL_FREE.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{TOLL_FREE}</a></span>
+                <a href={`tel:${CONTACT_PHONE_2.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{CONTACT_PHONE_2}</a>
               </div>
           </div>
         </div>

@@ -17,7 +17,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className="relative overflow-hidden">
+        <section className="relative overflow-hidden min-h-screen">
             {/* Background carousel (no scrollbar) */}
             <div className="absolute inset-0 z-0 h-full w-full overflow-hidden no-scrollbar">
                 <div
@@ -36,8 +36,8 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-black/30 pointer-events-none" />
             </div>
 
-            <div className="relative z-10 mx-auto max-w-7xl px-6 py-28 text-center lg:text-left">
-                <div className="lg:flex lg:items-center lg:justify-between">
+            <div className="relative z-10 mx-auto max-w-7xl px-6 py-28 text-center lg:text-left h-full flex items-center">
+                <div className="w-full lg:flex lg:items-center lg:justify-between">
                     <div className="max-w-2xl text-white">
                         <h1 style={{ textAlign: 'left' }} className="text-left text-4xl font-extrabold tracking-tight sm:text-5xl">
                             {HERO_TITLE}

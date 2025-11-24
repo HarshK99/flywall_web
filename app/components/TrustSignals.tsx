@@ -2,7 +2,7 @@
 
 import React from 'react';
 import CounterBox from './CounterBox';
-import { TRUST_SKZ, TRUST_YEARS, TRUST_CAPACITY } from '../config/siteText';
+import {TRUST_YEARS, TRUST_CAPACITY } from '../config/siteText';
 import Card from './Card';
 
 export default function TrustSignals() {
@@ -31,8 +31,7 @@ export default function TrustSignals() {
         <p className="mt-2 text-zinc-600">Trusted certifications and production capability</p>
       </div>
 
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <Card className="p-6 text-center"><CounterBox label={TRUST_SKZ} target={1} header={null} duration={800} /></Card>
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
         <Card className="p-6 text-center"><CounterBox label={TRUST_YEARS} target={25} suffix="+" duration={1200} /></Card>
         <Card className="p-6 text-center"><CounterBox label={capLabel} target={capacityNumber} suffix="" duration={1500} /></Card>
       </div>

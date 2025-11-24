@@ -82,6 +82,7 @@ export const BENEFITS: { title: string; desc: string; icon?: string }[] = [
 ];
 
 // Trust signals
+export const TRUST_SKZ = 'SKZ Germany';
 export const TRUST_YEARS = '25+ Years Experience';
 export const TRUST_CAPACITY = 'Production Capacity: 100k units/year';
 export const TRUST_CERTS: string[] = ['SKZ Germany (certified testing)'];

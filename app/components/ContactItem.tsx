@@ -1,0 +1,29 @@
+"use client"
+
+import React from 'react';
+
+type Props = {
+  icon: React.ReactNode;
+  label: string;
+  children: React.ReactNode;
+  href?: string;
+  className?: string;
+};
+
+export default function ContactItem({ icon, label, children, href, className = '' }: Props) {
+  return (
+    <div className={`flex items-start gap-3 ${className}`}>
+      <div className="mt-1 text-primary">{icon}</div>
+      <div>
+        <div className="text-xs text-zinc-500">{label}</div>
+        {href ? (
+          <a href={href} className="font-semibold text-zinc-900">
+            {children}
+          </a>
+        ) : (
+          <div className="text-zinc-600">{children}</div>
+        )}
+      </div>
+    </div>
+  );
+}

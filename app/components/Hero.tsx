@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react";
 import { HERO_TITLE, HERO_DESCRIPTION, HERO_EXPLORE_LABEL, HERO_REQUEST_LABEL } from "../config/siteText";
 
-const images = ["/hero/1.jpg", "/hero/2.jpg"];
+const images = ["/hero/1.png", "/hero/2.jpg"];
 
 export default function Hero() {
     const [index, setIndex] = useState(0);

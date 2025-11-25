@@ -71,10 +71,10 @@ function MobileMenu({ menu, open, setOpen }: { menu: { label: string; href: stri
           ))}
         </div>
 
-        <div className="flex flex-col gap-2 pt-2">
+        {/* <div className="flex flex-col gap-2 pt-2">
           <a href="#schedule" className="block rounded-md border border-primary px-3 py-2 text-center text-sm font-semibold text-primary">{CTA_SCHEDULE}</a>
           <a href="#callback" className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white">{CTA_CALLBACK}</a>
-        </div>
+        </div> */}
 
         <div className="pt-3 border-t flex items-center justify-between text-sm text-zinc-600">
           <div>
@@ -145,7 +145,7 @@ export default function Header() {
         <NavLinks menu={menu} className="hidden lg:flex items-center gap-4 text-sm" dark={!scrolled} />
 
         <div className="flex items-center gap-3">
-          <CTAs dark={!scrolled} />
+          {/* <CTAs dark={!scrolled} /> */}
 
           {/* Mobile menu button */}
           <button

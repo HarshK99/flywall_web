@@ -37,7 +37,7 @@ export default function Hero() {
           <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">{HERO_TITLE}</h1>
           <p className="mt-4 text-lg">{HERO_DESCRIPTION}</p>
 
-          <div className="mt-6 flex gap-3">
+          {/* <div className="mt-6 flex gap-3">
             <a
               href="#products"
               className="inline-flex items-center rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark"
@@ -51,7 +51,7 @@ export default function Hero() {
             >
               {HERO_REQUEST_LABEL}
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

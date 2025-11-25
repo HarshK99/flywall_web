@@ -21,10 +21,10 @@ export default function ContactUs() {
             <Card className="p-6">
               <h3 className="text-xl font-semibold">Send an enquiry</h3>
               <p className="mt-2 text-sm text-zinc-600">Share a few details and we'll get back within one business day.</p>
-              <div className="mt-6">
-                <ContactForm />
-              </div>
             </Card>
+              <div className="mt-6">
+            <ContactForm />
+              </div>
           </div>
 
           <aside className="text-sm text-zinc-700">

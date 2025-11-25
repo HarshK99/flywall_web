@@ -35,7 +35,7 @@ export default function ProductGallery() {
   return (
     <div>
       <ProductGrid title={PRODUCT_WINDOWS_TITLE} items={PRODUCT_WINDOWS} />
-      <ProductGrid title={PRODUCT_DOORS_TITLE} items={PRODUCT_DOORS} />
+      {/* <ProductGrid title={PRODUCT_DOORS_TITLE} items={PRODUCT_DOORS} /> */}
     </div>
   );
 }

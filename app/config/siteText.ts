@@ -61,10 +61,10 @@ export const FEATURES: { title: string; desc: string; icon?: string }[] = [
 export const PRODUCT_WINDOWS_TITLE = 'Window profiles';
 export const PRODUCT_DOORS_TITLE = 'Door profiles';
 export const PRODUCT_WINDOWS: { label: string; img: string }[] = [
-  { label: 'Casement', img: '/products_styles/casement.jpg' },
-  { label: 'Sliding', img: '/products_styles/sliding.jpg' },
-  { label: 'Top-hung', img: '/products_styles/top-hang.jpg' },
-  { label: 'Arch windows', img: '/products_styles/arch.jpg' },
+  { label: 'Casement', img: '/products_styles/1.png' },
+  { label: 'Sliding', img: '/products_styles/2.png' },
+  { label: 'Top-hung', img: '/products_styles/1.png' },
+  { label: 'Arch windows', img: '/products_styles/2.png' },
 ];
 export const PRODUCT_DOORS: { label: string; img: string }[] = [
   { label: 'Entrance door', img: '/products_styles/entrance.jpg' },

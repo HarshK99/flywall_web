@@ -11,6 +11,7 @@ import {
   FOOTER_COPYRIGHT,
   LOGO_ALT,
 } from "../config/siteText";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -35,16 +36,14 @@ export default function Footer() {
           {/* Address Section */}
           <div>
             <h4 className="font-semibold text-zinc-100">Address</h4>
-            <div className="mt-3 text-sm">
+              <div className="mt-3 text-sm">
               <a
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(FOOTER_MAP_QUERY)}`}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="inline-flex items-start gap-2 text-zinc-300 hover:text-zinc-100"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 flex-shrink-0 text-zinc-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
-                </svg>
+                <FaMapMarkerAlt className="h-4 w-4 flex-shrink-0 text-zinc-300" aria-hidden />
                 <span>{FOOTER_ADDRESS}</span>
               </a>
             </div>
@@ -56,25 +55,19 @@ export default function Footer() {
             <div className="mt-3 text-sm text-zinc-300 space-y-2">
               <div>
                 <a href={`tel:${FOOTER_PHONE_1.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-zinc-300 hover:text-zinc-100">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 flex-shrink-0 text-zinc-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.25 1.01l-2.2 2.21z" />
-                  </svg>
+                  <FaPhoneAlt className="h-4 w-4 flex-shrink-0 text-zinc-300" aria-hidden />
                   <span>{FOOTER_PHONE_1}</span>
                 </a>
               </div>
               <div>
                 <a href={`tel:${FOOTER_PHONE_2.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-zinc-300 hover:text-zinc-100">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 flex-shrink-0 text-zinc-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.25 1.01l-2.2 2.21z" />
-                  </svg>
+                  <FaPhoneAlt className="h-4 w-4 flex-shrink-0 text-zinc-300" aria-hidden />
                   <span>{FOOTER_PHONE_2}</span>
                 </a>
               </div>
               <div>
                 <a href={`mailto:${FOOTER_SUPPORT_EMAIL}`} className="inline-flex items-center gap-2 text-zinc-300 hover:text-zinc-100">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 flex-shrink-0 text-zinc-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                  </svg>
+                  <FaEnvelope className="h-4 w-4 flex-shrink-0 text-zinc-300" aria-hidden />
                   <span>{FOOTER_SUPPORT_EMAIL}</span>
                 </a>
               </div>

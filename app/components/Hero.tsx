@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { HERO_TITLE, HERO_DESCRIPTION, HERO_EXPLORE_LABEL, HERO_REQUEST_LABEL } from "../config/siteText";
+import { HERO_TITLE, HERO_DESCRIPTION, HERO_DESCRIPTION_MOBILE, HERO_EXPLORE_LABEL, HERO_REQUEST_LABEL } from "../config/siteText";
 
 const images = ["/hero/1.png", "/hero/2.png"];
 
@@ -14,7 +14,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full" style={{ height: 'min(100vh, calc(100vw * 9 / 16))' }}>
+    <section className="relative w-full pt-20 lg:pt-0" style={{ height: 'min(100vh, calc(100vw * 9 / 16))' }}>
       {/* Background images (crossfade) */}
       <div className="absolute inset-0 overflow-hidden">
         {images.map((src, i) => (
@@ -32,10 +32,14 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 sm:py-24 h-full flex items-center">
-        <div className="max-w-2xl text-white">
-          <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">{HERO_TITLE}</h1>
-          <p className="mt-4 text-lg">{HERO_DESCRIPTION}</p>
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 sm:py-24 h-full flex items-center justify-center lg:justify-start">
+        <div className="max-w-2xl text-white text-center lg:text-left">
+          <p className="text-4xl sm:text-5xl font-extrabold leading-tight">{HERO_TITLE}</p>
+          {/* Mobile: short description (one line) */}
+          <p className="mt-4 text-sm block sm:hidden max-w-xs">{HERO_DESCRIPTION_MOBILE}</p>
+
+          {/* Desktop: full description */}
+          <p className="mt-4 text-lg hidden sm:block break-words max-w-prose">{HERO_DESCRIPTION}</p>
 
           {/* <div className="mt-6 flex gap-3">
             <a

@@ -37,6 +37,7 @@ export const HERO_TITLE = 'Flywall uPVC profiles';
 export const HERO_SUBTITLE = 'The smarter choice';
 export const HERO_DESCRIPTION = `Goodbye to rot, rust & termites. Flywall uPVC profiles provide long-lasting,
 low-maintenance side frames engineered for strength, precision and energy efficiency. Trusted across the North East for fabrication-grade performance.`;
+export const HERO_DESCRIPTION_MOBILE = 'Durable, low-maintenance uPVC profiles — rot, rust and termite resistant.';
 export const HERO_EXPLORE_LABEL = 'Explore products';
 export const HERO_REQUEST_LABEL = 'Request consultation';
 

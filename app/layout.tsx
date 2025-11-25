@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 import { SITE_TITLE, SITE_DESCRIPTION } from './config/siteText';
+import BottomBar from './components/BottomBar';
 
 export const metadata: Metadata = {
   title: SITE_TITLE,
@@ -33,6 +34,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        {/* Mobile bottom bar: only visible on small screens */}
+        <BottomBar />
       </body>
     </html>
   );

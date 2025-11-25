@@ -61,10 +61,12 @@ export const FEATURES: { title: string; desc: string; icon?: string }[] = [
 export const PRODUCT_WINDOWS_TITLE = 'Window profiles';
 export const PRODUCT_DOORS_TITLE = 'Door profiles';
 export const PRODUCT_WINDOWS: { label: string; img: string }[] = [
-  { label: 'Casement', img: '/products_styles/1.png' },
-  { label: 'Sliding', img: '/products_styles/2.png' },
-  { label: 'Top-hung', img: '/products_styles/1.png' },
-  { label: 'Arch windows', img: '/products_styles/2.png' },
+  { label: 'Dark Oak', img: '/products_styles/1.png' },
+  { label: 'Golden Oak', img: '/products_styles/2.png' },
+  { label: 'Grey', img: '/products_styles/3.png' },
+  { label: 'Silver', img: '/products_styles/4.png' },
+  { label: 'Walnut', img: '/products_styles/5.png' },
+  { label: 'Black', img: '/products_styles/6.png' },
 ];
 export const PRODUCT_DOORS: { label: string; img: string }[] = [
   { label: 'Entrance door', img: '/products_styles/entrance.jpg' },

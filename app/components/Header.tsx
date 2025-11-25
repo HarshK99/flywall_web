@@ -97,7 +97,7 @@ export default function Header() {
   const menu = MENU;
 
   return (
-    <header className={`sticky top-0 z-50 w-full backdrop-blur-sm relative ${scrolled ? 'bg-white/90 border-b' : 'bg-zinc-900'} `}>
+    <header className={`sticky top-0 z-50 w-full backdrop-blur-sm relative ${scrolled ? 'bg-white/90' : 'bg-zinc-900'} `}>
       {/* Top utility bar: hidden smoothly when scrolled to avoid flicker/layout jumps */}
       <div className={`hidden sm:block bg-zinc-50 text-zinc-700 transition-all duration-200 ease-in-out overflow-hidden ${scrolled ? 'opacity-0 -translate-y-2 max-h-0 pointer-events-none' : 'opacity-100 translate-y-0 max-h-40'}`}>
         <div className="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">

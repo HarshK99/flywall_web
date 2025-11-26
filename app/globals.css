@@ -3,9 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #0b3d91; /* dark blue */
-  --primary-dark: #093375; /* darker for hover */
-  --secondary: #5fb3ff; /* light blue */
+  --primary: #2596be; /* teal-blue */
+  --primary-dark: #1f6f94; /* darker teal for hover */
+  --secondary: #ffb86b; /* warm amber */
+  --tertiary: #7ad1c6; /* mint accent */
 }
 
 @theme inline {

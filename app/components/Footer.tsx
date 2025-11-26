@@ -23,8 +23,8 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 overflow-hidden rounded-md bg-white/0">
-                <img src="/logo.png" alt={LOGO_ALT} width={40} height={40} className="object-contain" />
+              <div className="h-12 w-12 overflow-hidden rounded-md bg-white/0">
+                <img src="/logo.png" alt={LOGO_ALT} width={48} height={48} className="object-contain" />
               </div>
               <div>
                 <div className="font-semibold text-zinc-100">{FOOTER_BRAND}</div>

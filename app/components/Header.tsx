@@ -15,7 +15,7 @@ import {
 import { FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
 // Small internal helpers to reduce duplication
-function Logo({ className = '', size = 'h-8' }: { className?: string; size?: string }) {
+function Logo({ className = '', size = 'h-10' }: { className?: string; size?: string }) {
   return (
     <Link href="/" className={className}>
       <img src="/logo.png" alt={LOGO_ALT} className={`${size} w-auto object-contain`} />
@@ -103,7 +103,7 @@ export default function Header() {
         <div className="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
           <div className="flex items-center gap-4">
             {/* Logo moved into the utility bar */}
-            <Logo className="flex items-center gap-3" size="h-8" />
+            <Logo className="flex items-center gap-3" size="h-10" />
           </div>
 
           <div className="flex items-center gap-4">
@@ -137,9 +137,9 @@ export default function Header() {
       <div className={`mx-auto max-w-7xl px-4 ${scrolled ? 'py-1 text-zinc-700' : 'py-3 text-zinc-700 sm:text-white'} flex items-center justify-between transition-all duration-200`}>
         <div className="flex items-center gap-4">
           {/* mobile logo: show on small screens where utility bar is hidden */}
-          <Logo className="sm:hidden" size={scrolled ? 'h-7' : 'h-9'} />
+          <Logo className="sm:hidden" size={scrolled ? 'h-9' : 'h-11'} />
           {/* desktop logo for sticky header when scrolled */}
-          {scrolled && <Logo className="hidden sm:flex" size="h-7" />}
+          {scrolled && <Logo className="hidden sm:flex" size="h-9" />}
         </div>
 
         <NavLinks menu={menu} className="hidden lg:flex items-center gap-4 text-sm" dark={!scrolled} />

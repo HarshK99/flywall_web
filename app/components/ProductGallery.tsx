@@ -173,7 +173,11 @@ function DesktopCarousel({ title, items }: { title: string; items: Item[] }) {
               <div key={`${g.label}-${idx}`} style={{ flex: `0 0 ${cardWidth}px` }}>
                 <Card className="group flex flex-col items-center p-6 bg-white hover:bg-zinc-50 transition-colors duration-300">
                   <div className="w-full h-72 rounded overflow-hidden flex items-center justify-center">
-                    <img src={g.img} alt={g.label} className="w-48 h-48 object-contain" />
+                    <img
+                      src={g.img}
+                      alt={g.label}
+                      className="w-48 h-48 object-contain transition-transform duration-300 ease-in-out transform group-hover:scale-95 group-hover:-translate-y-1"
+                    />
                   </div>
                   <div className="mt-4 text-base font-medium text-zinc-900 text-center">{g.label}</div>
                 </Card>

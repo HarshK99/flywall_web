@@ -76,6 +76,18 @@ export const PRODUCT_DOORS: { label: string; img: string }[] = [
   { label: 'French door', img: '/products_styles/french.jpg' },
 ];
 
+// Window styles gallery (used by WindowGallery component)
+export const WINDOW_STYLES_TITLE = 'Window styles';
+export const WINDOW_STYLES: { label: string; img: string }[] = [
+  { label: 'Sliding', img: '/window_styles/sliding.png' },
+  { label: 'Casement', img: '/window_styles/casement.png' },
+  { label: 'Arch', img: '/window_styles/arch.png' },
+  { label: 'Combination', img: '/window_styles/combination.png' },
+  { label: 'Tilt & Turn', img: '/window_styles/tilt-and-turn.png' },
+  { label: 'Villa', img: '/window_styles/villa.png' },
+  { label: 'Ventilator', img: '/window_styles/ventilator.png' },
+];
+
 // Benefits (expanded with poster claims)
 export const BENEFITS: { title: string; desc: string; icon?: string }[] = [
   { title: 'Minimal maintenance', desc: 'No painting, no rust treatment and minimal upkeep across years', icon: 'tools' },

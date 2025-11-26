@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import HeroIntro from './components/AboutUs';
 import FeatureGrid from './components/FeatureGrid';
 import ProductGallery from './components/ProductGallery';
+import WindowGallery from './components/WindowGallery';
 import Benefits from './components/Benefits';
 import CTA from './components/CTA';
 import TrustSignals from './components/TrustSignals';
@@ -20,6 +21,7 @@ export default function Home() {
         <HeroIntro />
         <FeatureGrid />
         <ProductGallery />
+        <WindowGallery />
         <Benefits />
         <CTA />
         {/* <TrustSignals /> */}

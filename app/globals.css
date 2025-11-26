@@ -7,6 +7,8 @@
   --primary-dark: #1f6f94; /* darker teal for hover */
   --secondary: #ffb86b; /* warm amber */
   --tertiary: #7ad1c6; /* mint accent */
+  --window-card-bg: transparent; /* background for window gallery cards (changeable) */
+  --window-card-text: #ffffff; /* text color for window gallery cards (changeable) */
 }
 
 @theme inline {

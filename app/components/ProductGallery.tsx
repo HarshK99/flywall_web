@@ -36,7 +36,7 @@ function MobileCarousel({ title, items }: { title: string; items: Item[] }) {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % items.length), 3500);
+    const id = setInterval(() => setIndex((i) => (i + 1) % items.length), 500);
     return () => clearInterval(id);
   }, [items.length]);
 

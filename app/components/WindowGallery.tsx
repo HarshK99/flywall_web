@@ -45,7 +45,7 @@ function MobileGallery({ title, items }: { title: string; items: Item[] }) {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % items.length), 3500);
+    const id = setInterval(() => setIndex((i) => (i + 1) % items.length), 500);
     return () => clearInterval(id);
   }, [items.length]);
 
@@ -57,10 +57,10 @@ function MobileGallery({ title, items }: { title: string; items: Item[] }) {
 
   const item = items[index];
 
-  return (
-    <section className="w-full py-8">
+     return (
+       <section className="w-full py-8" style={{ backgroundColor: '#0b3b61' }}>
       <div className="mx-auto max-w-7xl px-4">
-        <h3 className="text-2xl font-semibold mb-6 text-white">{title}</h3>
+           <h3 className="text-2xl font-semibold mb-6 text-white">{title}</h3>
 
         <div className="flex justify-center">
           <div className={`max-w-md w-full transition-opacity duration-400 ${visible ? 'opacity-100' : 'opacity-0'}`}>

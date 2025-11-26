@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react';
+import { useInView } from '../lib/useInView';
 import { ABOUT_TITLE, ABOUT_DESC } from '../config/siteText';
 
 export default function HeroIntro() {
@@ -14,15 +15,17 @@ export default function HeroIntro() {
     return () => clearInterval(id);
   }, []);
 
+  const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.12 });
+
   return (
-    <section className="mx-auto max-w-7xl px-4 py-8 md:py-12">
+    <section className="mx-auto max-w-7xl px-4 py-8 md:py-12" ref={ref}>
       <div className="text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold">{ABOUT_TITLE}</h2>
-        <p className="mt-3 text-zinc-600 max-w-2xl mx-auto">{ABOUT_DESC}</p>
+        <h2 className={`text-3xl md:text-4xl font-extrabold ${inView ? 'animate-entry' : ''}`} style={{ ['--entry-delay' as any]: `0ms` }}>{ABOUT_TITLE}</h2>
+        <p className={`mt-3 text-zinc-600 max-w-2xl mx-auto ${inView ? 'animate-entry' : ''}`} style={{ ['--entry-delay' as any]: `80ms` }}>{ABOUT_DESC}</p>
       </div>
 
       <div className="mt-8">
-        <div className="relative mx-auto max-w-4xl h-64 md:h-96 overflow-hidden rounded-lg">
+        <div className={`relative mx-auto max-w-4xl h-64 md:h-96 overflow-hidden rounded-lg ${inView ? 'animate-entry' : ''}`} style={{ ['--entry-delay' as any]: `160ms` }}>
           {images.map((src, i) => (
             <img
               key={src}

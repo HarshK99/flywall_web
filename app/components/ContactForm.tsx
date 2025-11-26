@@ -54,7 +54,7 @@ export default function ContactForm({ initial, onSubmit, className = '' }: Props
 
   return (
     <div className={className}>
-      <form onSubmit={handleSubmit} className="space-y-6 rounded-lg border bg-white p-6 shadow-sm">
+      <form onSubmit={handleSubmit} className="space-y-6 rounded-lg  bg-white p-6 shadow-sm">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             {/* <label htmlFor="FirstName" className="block text-sm font-medium text-zinc-700">Full name</label> */}

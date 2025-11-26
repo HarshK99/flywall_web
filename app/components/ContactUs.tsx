@@ -31,7 +31,7 @@ export default function ContactUs() {
             <Card className="p-6 space-y-4">
               <h3 className="text-lg font-semibold">Contact Details</h3>
 
-              <div className="grid grid-cols-1 gap-3">
+              <div className="grid grid-cols-1 gap-3 text-center">
                 <ContactItem icon={<FaPhoneAlt />} label="Phone">
                     <>
                       <a href={`tel:${CONTACT_PHONE_2.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{CONTACT_PHONE_2}</a>
@@ -49,7 +49,7 @@ export default function ContactUs() {
                 </ContactItem>
               </div>
 
-              <div className="pt-4 border-t">
+              <div className="pt-4 border-t text-center">
                 <div className="text-sm text-zinc-600">Office hours</div>
                 <div className="font-medium">Mon - Sat: 9:00 AM - 6:00 PM</div>
               </div>

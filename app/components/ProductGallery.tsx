@@ -56,7 +56,7 @@ function MobileCarousel({ title, items }: { title: string; items: Item[] }) {
 
         <div className="flex justify-center">
           <div className={`max-w-md w-full transition-opacity duration-400 ${visible ? 'opacity-100' : 'opacity-0'}`}>
-            <Card className="group flex flex-col items-center p-6 bg-white transition-colors duration-200">
+            <Card className="group flex flex-col items-center p-6 bg-white transition-colors duration-200 product-card">
               <div className="w-full h-72 rounded overflow-hidden flex items-center justify-center">
                 <img src={item.img} alt={item.label} className="w-56 h-56 object-contain" />
               </div>
@@ -171,7 +171,7 @@ function DesktopCarousel({ title, items }: { title: string; items: Item[] }) {
           >
             {extended.map((g, idx) => (
               <div key={`${g.label}-${idx}`} style={{ flex: `0 0 ${cardWidth}px` }}>
-                <Card className="group flex flex-col items-center p-6 bg-white hover:bg-zinc-50 transition-colors duration-300">
+                <Card className="group flex flex-col items-center p-6 bg-white hover:bg-zinc-50 transition-colors duration-300 product-card">
                   <div className="w-full h-72 rounded overflow-hidden flex items-center justify-center">
                     <img
                       src={g.img}

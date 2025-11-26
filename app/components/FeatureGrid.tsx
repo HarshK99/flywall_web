@@ -4,6 +4,7 @@ import React from 'react';
 import { FaBolt, FaLeaf, FaAward, FaPaintBrush } from 'react-icons/fa';
 import { FEATURES } from '../config/siteText';
 import Card from './Card';
+import { useInView } from '../lib/useInView';
 
 export default function FeatureGrid() {
   // Use Font Awesome icons from react-icons/fa
@@ -31,24 +32,26 @@ export default function FeatureGrid() {
       </div>
 
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {FEATURES.map((f) => {
+        {FEATURES.map((f, idx) => {
           const key = f.icon ?? 'styles';
+          const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.12 });
           return (
-            <Card
+            <div key={f.title} ref={ref} style={{ ['--entry-delay' as any]: `${idx * 90}ms` }} className={inView ? 'animate-entry' : ''}>
+              <Card
                 as="article"
-                key={f.title}
                 className="p-6 focus-within:ring-2 focus-within:ring-primary"
                 tabIndex={0}
               >
-              <div className="mb-3 flex items-center justify-center">
-                <div className="h-12 w-12 rounded-full bg-primary text-white flex items-center justify-center">
-                  <Icon name={key} />
+                <div className="mb-3 flex items-center justify-center">
+                  <div className="h-12 w-12 rounded-full bg-primary text-white flex items-center justify-center">
+                    <Icon name={key} />
+                  </div>
                 </div>
-              </div>
 
-              <h4 className="text-center font-semibold text-lg">{f.title}</h4>
-              <p className="mt-3 text-sm text-zinc-600 text-center">{f.desc}</p>
-            </Card>
+                <h4 className="text-center font-semibold text-lg">{f.title}</h4>
+                <p className="mt-3 text-sm text-zinc-600 text-center">{f.desc}</p>
+              </Card>
+            </div>
           );
         })}
       </div>

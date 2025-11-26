@@ -57,11 +57,11 @@ export default function ContactForm({ initial, onSubmit, className = '' }: Props
       <form onSubmit={handleSubmit} className="space-y-6 rounded-lg border bg-white p-6 shadow-sm">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="FirstName" className="block text-sm font-medium text-zinc-700">Full name</label>
+            {/* <label htmlFor="FirstName" className="block text-sm font-medium text-zinc-700">Full name</label> */}
             <input
               id="FirstName"
               name="FirstName"
-              placeholder="Your full name"
+              placeholder="Full Name"
               autoComplete="name"
               value={form.name}
               onChange={(e) => update('name', e.target.value)}
@@ -71,12 +71,12 @@ export default function ContactForm({ initial, onSubmit, className = '' }: Props
           </div>
 
           <div>
-            <label htmlFor="Email" className="block text-sm font-medium text-zinc-700">Email address</label>
+            {/* <label htmlFor="Email" className="block text-sm font-medium text-zinc-700">Email address</label> */}
             <input
               id="Email"
               name="Email"
               type="email"
-              placeholder="you@company.com"
+              placeholder="Email"
               autoComplete="email"
               value={form.email}
               onChange={(e) => update('email', e.target.value)}
@@ -86,7 +86,7 @@ export default function ContactForm({ initial, onSubmit, className = '' }: Props
           </div>
 
           <div>
-            <label htmlFor="Mobile" className="block text-sm font-medium text-zinc-700">Mobile</label>
+            {/* <label htmlFor="Mobile" className="block text-sm font-medium text-zinc-700">Mobile</label> */}
             <input
               id="Mobile"
               name="Mobile"
@@ -100,19 +100,23 @@ export default function ContactForm({ initial, onSubmit, className = '' }: Props
           </div>
 
           <div>
-            <label htmlFor="Color" className="block text-sm font-medium text-zinc-700">Color preference</label>
+            {/* <label htmlFor="Color" className="block text-sm font-medium text-zinc-700">Color preference</label> */}
             <select
               id="Color"
               name="Color"
               value={form.color}
               onChange={(e) => update('color', e.target.value)}
-              className="mt-1 w-full rounded-md border border-zinc-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+              className={`mt-1 w-full rounded-md border border-zinc-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 ${form.color === "" ? "text-zinc-400" : "text-zinc-900"}`}
+
             >
-              <option value="">No preference</option>
-              <option>White</option>
-              <option>Wood Finish</option>
-              <option>Anthracite</option>
-              <option>Custom</option>
+              <option value="" disabled hidden>Select a color</option>
+                <option>Dark Oak</option>
+                <option>Golden Oak</option>
+                <option>Grey</option>
+                <option>Silver</option>
+                <option>Walnut</option>
+                <option>Black</option>
+
             </select>
           </div>
         </div>
@@ -131,12 +135,11 @@ export default function ContactForm({ initial, onSubmit, className = '' }: Props
         </div>
 
         <div className="flex items-center justify-between gap-4">
-          <div className="text-xs text-zinc-500">By submitting you agree to be contacted about your enquiry.</div>
-          <div>
+
             <button type="submit" disabled={submitting} className="inline-flex items-center rounded-md bg-primary px-5 py-2 text-sm font-semibold text-white shadow disabled:opacity-60">
               {submitting ? 'Submitting...' : 'Send enquiry'}
             </button>
-          </div>
+
         </div>
       </form>
     </div>

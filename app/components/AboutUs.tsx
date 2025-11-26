@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { ABOUT_TITLE, ABOUT_DESC } from '../config/siteText';
 
 export default function HeroIntro() {
-  const images = ['/hero/1.jpg', '/hero/2.jpg'];
+  const images = ['/hero/1.png', '/hero/2.png'];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {

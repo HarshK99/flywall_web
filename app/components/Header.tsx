@@ -12,6 +12,7 @@ import {
   LOGO_ALT,
   MOBILE_TOGGLE_LABEL,
 } from "../config/siteText";
+import { FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
 // Small internal helpers to reduce duplication
 function Logo({ className = '', size = 'h-8' }: { className?: string; size?: string }) {
@@ -70,10 +71,10 @@ function MobileMenu({ menu, open, setOpen }: { menu: { label: string; href: stri
           ))}
         </div>
 
-        <div className="flex flex-col gap-2 pt-2">
+        {/* <div className="flex flex-col gap-2 pt-2">
           <a href="#schedule" className="block rounded-md border border-primary px-3 py-2 text-center text-sm font-semibold text-primary">{CTA_SCHEDULE}</a>
           <a href="#callback" className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white">{CTA_CALLBACK}</a>
-        </div>
+        </div> */}
 
         <div className="pt-3 border-t flex items-center justify-between text-sm text-zinc-600">
           <div>
@@ -96,7 +97,7 @@ export default function Header() {
   const menu = MENU;
 
   return (
-    <header className={`sticky top-0 z-50 w-full backdrop-blur-sm relative ${scrolled ? 'bg-white/90 border-b' : 'bg-zinc-900'} `}>
+    <header className={`sticky top-0 z-50 w-full backdrop-blur-sm relative ${scrolled ? 'bg-white/90' : 'bg-white sm:bg-zinc-900'} `}>
       {/* Top utility bar: hidden smoothly when scrolled to avoid flicker/layout jumps */}
       <div className={`hidden sm:block bg-zinc-50 text-zinc-700 transition-all duration-200 ease-in-out overflow-hidden ${scrolled ? 'opacity-0 -translate-y-2 max-h-0 pointer-events-none' : 'opacity-100 translate-y-0 max-h-40'}`}>
         <div className="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
@@ -107,18 +108,33 @@ export default function Header() {
 
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3 text-sm">
-                <a href={`mailto:${CONTACT_EMAIL}`} className="text-sm text-zinc-600 hover:text-zinc-900">{CONTACT_EMAIL}</a>
-                <span className="text-zinc-400">|</span>
-                <a href={`tel:${CONTACT_PHONE_1.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{CONTACT_PHONE_1}</a>
-                <span className="hidden sm:inline text-zinc-400">|</span>
-                <a href={`tel:${CONTACT_PHONE_2.replace(/[^0-9+]/g, '')}`} className="font-semibold text-zinc-900">{CONTACT_PHONE_2}</a>
-              </div>
+              <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900">
+                <FaEnvelope className="h-4 w-4 text-zinc-500" aria-hidden />
+                <span className="hidden sm:inline">{CONTACT_EMAIL}</span>
+              </a>
+
+              <span className="text-zinc-400">|</span>
+
+              <a href={`tel:${CONTACT_PHONE_1.replace(/[^0-9+]/g, '')}`} className="flex items-center gap-2 font-semibold text-zinc-900">
+                <FaPhoneAlt className="h-4 w-4 text-zinc-500" aria-hidden />
+                <span className="sr-only">Primary phone</span>
+                <span className="hidden sm:inline">{CONTACT_PHONE_1}</span>
+              </a>
+
+              <span className="hidden sm:inline text-zinc-400">|</span>
+
+              <a href={`tel:${CONTACT_PHONE_2.replace(/[^0-9+]/g, '')}`} className="flex items-center gap-2 font-semibold text-zinc-900">
+                <FaPhoneAlt className="h-4 w-4 text-zinc-500" aria-hidden />
+                <span className="sr-only">Toll free</span>
+                <span className="hidden sm:inline">{CONTACT_PHONE_2}</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Primary nav: we keep this in the DOM and adjust padding/logo size to avoid layout jumps */}
-      <div className={`mx-auto max-w-7xl px-4 ${scrolled ? 'py-1 text-zinc-700' : 'py-3 text-white'} flex items-center justify-between transition-all duration-200`}>
+      <div className={`mx-auto max-w-7xl px-4 ${scrolled ? 'py-1 text-zinc-700' : 'py-3 text-zinc-700 sm:text-white'} flex items-center justify-between transition-all duration-200`}>
         <div className="flex items-center gap-4">
           {/* mobile logo: show on small screens where utility bar is hidden */}
           <Logo className="sm:hidden" size={scrolled ? 'h-7' : 'h-9'} />
@@ -129,11 +145,11 @@ export default function Header() {
         <NavLinks menu={menu} className="hidden lg:flex items-center gap-4 text-sm" dark={!scrolled} />
 
         <div className="flex items-center gap-3">
-          <CTAs dark={!scrolled} />
+          {/* <CTAs dark={!scrolled} /> */}
 
           {/* Mobile menu button */}
           <button
-            className={`lg:hidden inline-flex items-center justify-center rounded-md p-2 ${scrolled ? 'text-zinc-700 hover:bg-zinc-100' : 'text-white hover:bg-white/10'}`}
+            className={`lg:hidden inline-flex items-center justify-center rounded-md p-2 ${scrolled ? 'text-zinc-700 hover:bg-zinc-100' : 'text-zinc-700 sm:text-white hover:bg-zinc-100 sm:hover:bg-white/10'}`}
             aria-controls="mobile-menu"
             aria-expanded={open}
             onClick={() => setOpen((s) => !s)}

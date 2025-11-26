@@ -37,6 +37,7 @@ export const HERO_TITLE = 'Flywall uPVC profiles';
 export const HERO_SUBTITLE = 'The smarter choice';
 export const HERO_DESCRIPTION = `Goodbye to rot, rust & termites. Flywall uPVC profiles provide long-lasting,
 low-maintenance side frames engineered for strength, precision and energy efficiency. Trusted across the North East for fabrication-grade performance.`;
+export const HERO_DESCRIPTION_MOBILE = 'Durable, low-maintenance uPVC profiles — rot, rust and termite resistant.';
 export const HERO_EXPLORE_LABEL = 'Explore products';
 export const HERO_REQUEST_LABEL = 'Request consultation';
 
@@ -61,10 +62,12 @@ export const FEATURES: { title: string; desc: string; icon?: string }[] = [
 export const PRODUCT_WINDOWS_TITLE = 'Window profiles';
 export const PRODUCT_DOORS_TITLE = 'Door profiles';
 export const PRODUCT_WINDOWS: { label: string; img: string }[] = [
-  { label: 'Casement', img: '/products_styles/casement.jpg' },
-  { label: 'Sliding', img: '/products_styles/sliding.jpg' },
-  { label: 'Top-hung', img: '/products_styles/top-hang.jpg' },
-  { label: 'Arch windows', img: '/products_styles/arch.jpg' },
+  { label: 'Dark Oak', img: '/products_styles/1.png' },
+  { label: 'Golden Oak', img: '/products_styles/2.png' },
+  { label: 'Grey', img: '/products_styles/3.png' },
+  { label: 'Silver', img: '/products_styles/4.png' },
+  { label: 'Walnut', img: '/products_styles/5.png' },
+  { label: 'Black', img: '/products_styles/6.png' },
 ];
 export const PRODUCT_DOORS: { label: string; img: string }[] = [
   { label: 'Entrance door', img: '/products_styles/entrance.jpg' },

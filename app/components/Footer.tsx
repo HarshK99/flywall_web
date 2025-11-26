@@ -19,7 +19,7 @@ export default function Footer() {
   return (
     <footer className="bg-zinc-900 text-zinc-200 border-t border-zinc-800">
       <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 lg:gap-30 gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {/* Brand Section */}
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
@@ -41,9 +41,9 @@ export default function Footer() {
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(FOOTER_MAP_QUERY)}`}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-start gap-2 text-zinc-300 hover:text-zinc-100"
+                className="inline-flex items-start gap-2 text-zinc-300 hover:text-primary"
               >
-                <FaMapMarkerAlt className="h-4 w-4 flex-shrink-0 text-zinc-300" aria-hidden />
+                <FaMapMarkerAlt className="h-4 w-4 flex-shrink-0 text-zinc-300 hover:text-primary" aria-hidden />
                 <span>{FOOTER_ADDRESS}</span>
               </a>
             </div>
@@ -54,20 +54,20 @@ export default function Footer() {
             <h4 className="font-semibold text-zinc-100">Contact</h4>
             <div className="mt-3 text-sm text-zinc-300 space-y-2">
               <div>
-                <a href={`tel:${FOOTER_PHONE_1.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-zinc-300 hover:text-zinc-100">
-                  <FaPhoneAlt className="h-4 w-4 flex-shrink-0 text-zinc-300" aria-hidden />
+                <a href={`tel:${FOOTER_PHONE_1.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-zinc-300 hover:text-primary">
+                  <FaPhoneAlt className="h-4 w-4 flex-shrink-0 text-zinc-300 hover:text-primary" aria-hidden />
                   <span>{FOOTER_PHONE_1}</span>
                 </a>
               </div>
               <div>
-                <a href={`tel:${FOOTER_PHONE_2.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-zinc-300 hover:text-zinc-100">
-                  <FaPhoneAlt className="h-4 w-4 flex-shrink-0 text-zinc-300" aria-hidden />
+                <a href={`tel:${FOOTER_PHONE_2.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-zinc-300 hover:text-primary">
+                  <FaPhoneAlt className="h-4 w-4 flex-shrink-0 text-zinc-300 hover:text-primary" aria-hidden />
                   <span>{FOOTER_PHONE_2}</span>
                 </a>
               </div>
               <div>
-                <a href={`mailto:${FOOTER_SUPPORT_EMAIL}`} className="inline-flex items-center gap-2 text-zinc-300 hover:text-zinc-100">
-                  <FaEnvelope className="h-4 w-4 flex-shrink-0 text-zinc-300" aria-hidden />
+                <a href={`mailto:${FOOTER_SUPPORT_EMAIL}`} className="inline-flex items-center gap-2 text-zinc-300 hover:text-primary">
+                  <FaEnvelope className="h-4 w-4 flex-shrink-0 text-zinc-300 hover:text-primary" aria-hidden />
                   <span>{FOOTER_SUPPORT_EMAIL}</span>
                 </a>
               </div>

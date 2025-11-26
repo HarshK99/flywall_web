@@ -109,14 +109,14 @@ export default function Header() {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3 text-sm">
               <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900">
-                <FaEnvelope className="h-4 w-4 text-zinc-500" aria-hidden />
+                <FaEnvelope className="h-4 w-4 text-primary" aria-hidden />
                 <span className="hidden sm:inline">{CONTACT_EMAIL}</span>
               </a>
 
               <span className="text-zinc-400">|</span>
 
               <a href={`tel:${CONTACT_PHONE_1.replace(/[^0-9+]/g, '')}`} className="flex items-center gap-2 font-semibold text-zinc-900">
-                <FaPhoneAlt className="h-4 w-4 text-zinc-500" aria-hidden />
+                <FaPhoneAlt className="h-4 w-4 text-primary" aria-hidden />
                 <span className="sr-only">Primary phone</span>
                 <span className="hidden sm:inline">{CONTACT_PHONE_1}</span>
               </a>
@@ -124,7 +124,7 @@ export default function Header() {
               <span className="hidden sm:inline text-zinc-400">|</span>
 
               <a href={`tel:${CONTACT_PHONE_2.replace(/[^0-9+]/g, '')}`} className="flex items-center gap-2 font-semibold text-zinc-900">
-                <FaPhoneAlt className="h-4 w-4 text-zinc-500" aria-hidden />
+                <FaPhoneAlt className="h-4 w-4 text-primary" aria-hidden />
                 <span className="sr-only">Toll free</span>
                 <span className="hidden sm:inline">{CONTACT_PHONE_2}</span>
               </a>

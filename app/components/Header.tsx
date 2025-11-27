@@ -38,12 +38,18 @@ function NavLinks({ menu, className = '', onClick, dark = false }: { menu: { lab
   );
 }
 
-function NavBar({ dark = false, mobileMenuId = 'mobile-menu', menu, open, setOpen }: { dark?: boolean; mobileMenuId?: string; menu: { label: string; href: string }[]; open: boolean; setOpen: (v: boolean) => void }) {
+function NavBar({ compact = false, mobileMenuId = 'mobile-menu', menu, open, setOpen }: { compact?: boolean; mobileMenuId?: string; menu: { label: string; href: string }[]; open: boolean; setOpen: (v: boolean) => void }) {
+  const dark = compact; // compact is always dark
+  const padding = compact ? 'py-2' : 'py-3';
+
   return (
-    <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+    <div className={`mx-auto max-w-7xl px-4 ${padding} flex items-center justify-between ${compact ? 'text-white' : ''}`}>
       <div className="flex items-center gap-4">
-        <Logo className="sm:hidden" size="h-15" />
-        {/* <Logo className="hidden sm:flex" size="h-12" /> */}
+        {compact ? (
+          <Logo size="h-10" />
+        ) : (
+          <Logo className="sm:hidden" size="h-11" />
+        )}
       </div>
 
       <NavLinks menu={menu} className="hidden lg:flex items-center gap-4 text-sm" dark={dark} />
@@ -71,33 +77,6 @@ function NavBar({ dark = false, mobileMenuId = 'mobile-menu', menu, open, setOpe
   );
 }
 
-function CompactNavBar({ menu, open, setOpen }: { menu: { label: string; href: string }[]; open: boolean; setOpen: (v: boolean) => void }) {
-  return (
-    <div className="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-white">
-      <Logo size="h-10" />
-      <NavLinks menu={menu} className="hidden lg:flex items-center gap-4 text-sm" dark={true} />
-      <div className="flex items-center gap-3">
-        <button
-          className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-white/10"
-          aria-controls="mobile-menu-compact"
-          aria-expanded={open}
-          onClick={() => setOpen(!open)}
-        >
-          <span className="sr-only">{MOBILE_TOGGLE_LABEL}</span>
-          {open ? (
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
-        </button>
-      </div>
-    </div>
-  );
-}
 
 function MobileMenu({ menu, open, setOpen, id = 'mobile-menu' }: { menu: { label: string; href: string }[]; open: boolean; setOpen: (v: boolean) => void; id?: string }) {
   return (
@@ -176,7 +155,7 @@ export default function Header() {
         </div>
 
         {/* Primary nav: always light */}
-        <NavBar dark={false} mobileMenuId="mobile-menu" menu={menu} open={open} setOpen={setOpen} />
+        <NavBar compact={false} mobileMenuId="mobile-menu" menu={menu} open={open} setOpen={setOpen} />
 
         {/* Mobile menu panel */}
         <MobileMenu menu={menu} open={open} setOpen={setOpen} />
@@ -185,7 +164,7 @@ export default function Header() {
       {/* Compact sticky header: appears after scroll */}
       {scrolled && (
         <header className="compact-header fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-sm" style={{ backgroundColor: 'var(--bg-dark)' }}>
-          <CompactNavBar menu={menu} open={open} setOpen={setOpen} />
+          <NavBar compact={true} mobileMenuId="mobile-menu-compact" menu={menu} open={open} setOpen={setOpen} />
           {/* Mobile menu for compact header */}
           {open && <MobileMenu menu={menu} open={open} setOpen={setOpen} id="mobile-menu-compact" />}
         </header>

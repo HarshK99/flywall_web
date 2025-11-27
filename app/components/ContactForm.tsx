@@ -54,7 +54,7 @@ export default function ContactForm({ initial, onSubmit, className = '' }: Props
 
   return (
     <div className={className}>
-      <form onSubmit={handleSubmit} className="space-y-6 rounded-lg border bg-white p-6 shadow-sm">
+      <form onSubmit={handleSubmit} className="space-y-6 rounded-lg  bg-white p-6 shadow-sm">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             {/* <label htmlFor="FirstName" className="block text-sm font-medium text-zinc-700">Full name</label> */}
@@ -99,30 +99,10 @@ export default function ContactForm({ initial, onSubmit, className = '' }: Props
             />
           </div>
 
-          <div>
-            {/* <label htmlFor="Color" className="block text-sm font-medium text-zinc-700">Color preference</label> */}
-            <select
-              id="Color"
-              name="Color"
-              value={form.color}
-              onChange={(e) => update('color', e.target.value)}
-              className={`mt-1 w-full rounded-md border border-zinc-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 ${form.color === "" ? "text-zinc-400" : "text-zinc-900"}`}
-
-            >
-              <option value="" disabled hidden>Select a color</option>
-                <option>Dark Oak</option>
-                <option>Golden Oak</option>
-                <option>Grey</option>
-                <option>Silver</option>
-                <option>Walnut</option>
-                <option>Black</option>
-
-            </select>
-          </div>
         </div>
 
         <div>
-          <label htmlFor="Details" className="block text-sm font-medium text-zinc-700">Requirement details</label>
+          {/* <label htmlFor="Details" className="block text-sm font-medium text-zinc-700">Requirement details</label> */}
           <textarea
             id="Details"
             name="Details"
@@ -137,7 +117,7 @@ export default function ContactForm({ initial, onSubmit, className = '' }: Props
         <div className="flex items-center justify-between gap-4">
 
             <button type="submit" disabled={submitting} className="inline-flex items-center rounded-md bg-primary px-5 py-2 text-sm font-semibold text-white shadow disabled:opacity-60">
-              {submitting ? 'Submitting...' : 'Send enquiry'}
+              {submitting ? 'Submitting...' : 'Send Enquiry'}
             </button>
 
         </div>

@@ -15,7 +15,7 @@ import {
 import { FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
 // Small internal helpers to reduce duplication
-function Logo({ className = '', size = 'h-8' }: { className?: string; size?: string }) {
+function Logo({ className = '', size = 'h-10' }: { className?: string; size?: string }) {
   return (
     <Link href="/" className={className}>
       <img src="/logo.png" alt={LOGO_ALT} className={`${size} w-auto object-contain`} />
@@ -24,7 +24,7 @@ function Logo({ className = '', size = 'h-8' }: { className?: string; size?: str
 }
 
 function NavLinks({ menu, className = '', onClick, dark = false }: { menu: { label: string; href: string }[]; className?: string; onClick?: () => void; dark?: boolean }) {
-  const base = 'uppercase tracking-wide text-sm font-medium px-2 py-0.5 rounded transition-colors duration-200';
+  const base = 'uppercase tracking-wide text-sm font-medium px-2 py-0.5 rounded transition-colors duration-360';
   const darkStyles = 'text-white hover:bg-white/6 hover:text-primary';
   const lightStyles = 'text-zinc-700 hover:bg-zinc-100 hover:text-primary';
   return (
@@ -38,34 +38,53 @@ function NavLinks({ menu, className = '', onClick, dark = false }: { menu: { lab
   );
 }
 
-function CTAs({ dark = false }: { dark?: boolean }) {
-  if (dark) {
-    return (
-      <>
-        <a href="#schedule" className="hidden md:inline-block rounded-md border border-white bg-transparent px-3 py-2 text-sm font-semibold text-white hover:bg-white/5 transition-colors duration-200">
-          {CTA_SCHEDULE}
-        </a>
-       
-      </>
-    );
-  }
+function NavBar({ compact = false, mobileMenuId = 'mobile-menu', menu, open, setOpen }: { compact?: boolean; mobileMenuId?: string; menu: { label: string; href: string }[]; open: boolean; setOpen: (v: boolean) => void }) {
+  const dark = compact; // compact is always dark
+  const padding = compact ? 'py-2' : 'py-3';
 
   return (
-    <>
-      <a href="#schedule" className="hidden md:inline-block rounded-md border border-primary bg-white px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors duration-200">
-        {CTA_SCHEDULE}
-      </a>
-    </>
+    <div className={`mx-auto max-w-7xl px-4 ${padding} flex items-center justify-between ${compact ? 'text-white' : ''}`}>
+      <div className="flex items-center gap-4">
+        {compact ? (
+          <Logo size="h-15" />
+        ) : (
+          <Logo className="sm:hidden" size="h-15" />
+        )}
+      </div>
+
+      <NavLinks menu={menu} className="hidden lg:flex items-center gap-4 text-sm" dark={dark} />
+
+      <div className="flex items-center gap-3">
+        <button
+          className={`lg:hidden inline-flex items-center justify-center rounded-md p-2 'text-white hover:bg-white/10'}`}
+          aria-controls={mobileMenuId}
+          aria-expanded={open}
+          onClick={() => setOpen(!open)}
+        >
+          <span className="sr-only">{MOBILE_TOGGLE_LABEL}</span>
+          {open ? (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
+      </div>
+    </div>
   );
 }
 
-function MobileMenu({ menu, open, setOpen }: { menu: { label: string; href: string }[]; open: boolean; setOpen: (v: boolean) => void }) {
+
+function MobileMenu({ menu, open, setOpen, id = 'mobile-menu' }: { menu: { label: string; href: string }[]; open: boolean; setOpen: (v: boolean) => void; id?: string }) {
   return (
-    <div id="mobile-menu" className={`${open ? 'block' : 'hidden'} lg:hidden border-t bg-white`}>
-      <div className="mx-auto max-w-7xl px-4 py-4 space-y-3">
+    <div id={id} className={`${open ? 'block' : 'hidden'} lg:hidden border-t`} style={{ backgroundColor: 'var(--bg-dark)' }}>
+      <div className="mx-auto max-w-7xl px-4 py-4 space-y-3 text-white">
         <div className="flex flex-col gap-2">
-          {menu.map((m) => (
-            <Link key={m.label} href={m.href} onClick={() => setOpen(false)} className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50 hover:text-primary uppercase tracking-wide transition-colors duration-150">
+            {menu.map((m) => (
+            <Link key={m.label} href={m.href} onClick={() => setOpen(false)} className="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-white/5 hover:text-primary uppercase tracking-wide transition-colors duration-150">
               {m.label}
             </Link>
           ))}
@@ -93,89 +112,69 @@ function MobileMenu({ menu, open, setOpen }: { menu: { label: string; href: stri
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const scrolled = useScrollThreshold(80);
+  const scrolled = useScrollThreshold(120);
   const menu = MENU;
+  // viewport-based styling handled via CSS media queries rather than runtime state
 
   return (
-    <header className={`sticky top-0 z-50 w-full backdrop-blur-sm relative ${scrolled ? 'bg-white/90' : 'bg-white sm:bg-zinc-900'} `}>
-      {/* Top utility bar: hidden smoothly when scrolled to avoid flicker/layout jumps */}
-      <div className={`hidden sm:block bg-zinc-50 text-zinc-700 transition-all duration-200 ease-in-out overflow-hidden ${scrolled ? 'opacity-0 -translate-y-2 max-h-0 pointer-events-none' : 'opacity-100 translate-y-0 max-h-40'}`}>
-        <div className="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
-          <div className="flex items-center gap-4">
-            {/* Logo moved into the utility bar */}
-            <Logo className="flex items-center gap-3" size="h-8" />
-          </div>
+    <>
+      {/* Main header: not sticky, full height */}
+      <header className="site-header w-full relative">
+        {/* Top utility bar: always visible */}
+        <div className="hidden sm:block text-white" style={{ backgroundColor: 'var(--bg-dark)' }}>
+          <div className="mx-auto max-w-7xl px-4 flex items-center justify-between text-sm">
+            <div className="flex items-center gap-4">
+              <Logo className="flex items-center gap-1" size="h-15" />
+            </div>
 
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-3 text-sm">
-              <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900">
-                <FaEnvelope className="h-4 w-4 text-zinc-500" aria-hidden />
-                <span className="hidden sm:inline">{CONTACT_EMAIL}</span>
-              </a>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3 text-sm">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-2 text-sm text-zinc-200 hover:text-white">
+                  <FaEnvelope className="h-4 w-4 text-primary" aria-hidden />
+                  <span className="hidden sm:inline">{CONTACT_EMAIL}</span>
+                </a>
 
-              <span className="text-zinc-400">|</span>
+                <span className="text-zinc-400">|</span>
 
-              <a href={`tel:${CONTACT_PHONE_1.replace(/[^0-9+]/g, '')}`} className="flex items-center gap-2 font-semibold text-zinc-900">
-                <FaPhoneAlt className="h-4 w-4 text-zinc-500" aria-hidden />
-                <span className="sr-only">Primary phone</span>
-                <span className="hidden sm:inline">{CONTACT_PHONE_1}</span>
-              </a>
+                <a href={`tel:${CONTACT_PHONE_1.replace(/[^0-9+]/g, '')}`} className="flex items-center gap-2 font-semibold text-zinc-200">
+                  <FaPhoneAlt className="h-4 w-4 text-primary" aria-hidden />
+                  <span className="sr-only">Primary phone</span>
+                  <span className="hidden sm:inline">{CONTACT_PHONE_1}</span>
+                </a>
 
-              <span className="hidden sm:inline text-zinc-400">|</span>
+                <span className="hidden sm:inline text-zinc-400">|</span>
 
-              <a href={`tel:${CONTACT_PHONE_2.replace(/[^0-9+]/g, '')}`} className="flex items-center gap-2 font-semibold text-zinc-900">
-                <FaPhoneAlt className="h-4 w-4 text-zinc-500" aria-hidden />
-                <span className="sr-only">Toll free</span>
-                <span className="hidden sm:inline">{CONTACT_PHONE_2}</span>
-              </a>
+                <a href={`tel:${CONTACT_PHONE_2.replace(/[^0-9+]/g, '')}`} className="flex items-center gap-2 font-semibold text-zinc-200">
+                  <FaPhoneAlt className="h-4 w-4 text-primary" aria-hidden />
+                  <span className="sr-only">Toll free</span>
+                  <span className="hidden sm:inline">{CONTACT_PHONE_2}</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Primary nav: we keep this in the DOM and adjust padding/logo size to avoid layout jumps */}
-      <div className={`mx-auto max-w-7xl px-4 ${scrolled ? 'py-1 text-zinc-700' : 'py-3 text-zinc-700 sm:text-white'} flex items-center justify-between transition-all duration-200`}>
-        <div className="flex items-center gap-4">
-          {/* mobile logo: show on small screens where utility bar is hidden */}
-          <Logo className="sm:hidden" size={scrolled ? 'h-7' : 'h-9'} />
-          {/* desktop logo for sticky header when scrolled */}
-          {scrolled && <Logo className="hidden sm:flex" size="h-7" />}
-        </div>
+        {/* Primary nav: always light */}
+        <NavBar compact={false} mobileMenuId="mobile-menu" menu={menu} open={open} setOpen={setOpen} />
 
-        <NavLinks menu={menu} className="hidden lg:flex items-center gap-4 text-sm" dark={!scrolled} />
-
-        <div className="flex items-center gap-3">
-          {/* <CTAs dark={!scrolled} /> */}
-
-          {/* Mobile menu button */}
-          <button
-            className={`lg:hidden inline-flex items-center justify-center rounded-md p-2 ${scrolled ? 'text-zinc-700 hover:bg-zinc-100' : 'text-zinc-700 sm:text-white hover:bg-zinc-100 sm:hover:bg-white/10'}`}
-            aria-controls="mobile-menu"
-            aria-expanded={open}
-            onClick={() => setOpen((s) => !s)}
-          >
-            <span className="sr-only">{MOBILE_TOGGLE_LABEL}</span>
-            {open ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu panel (componentized) */}
-      <MobileMenu menu={menu} open={open} setOpen={setOpen} />
+        {/* Mobile menu panel */}
+        <MobileMenu menu={menu} open={open} setOpen={setOpen} />
       </header>
+
+      {/* Compact sticky header: appears after scroll */}
+      {scrolled && (
+        <header className="compact-header fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-sm" style={{ backgroundColor: 'rgba(3, 35, 51, 0.9)' }}>
+          <NavBar compact={true} mobileMenuId="mobile-menu-compact" menu={menu} open={open} setOpen={setOpen} />
+          {/* Mobile menu for compact header */}
+          {open && <MobileMenu menu={menu} open={open} setOpen={setOpen} id="mobile-menu-compact" />}
+        </header>
+      )}
+    </>
   );
 }
 
   // track scroll to toggle compact header
-  function useScrollThreshold(threshold = 80) {
+  function useScrollThreshold(threshold = 120) {
     const [scrolled, setScrolled] = useState(false);
     useEffect(() => {
       const onScroll = () => setScrolled(window.scrollY > threshold);

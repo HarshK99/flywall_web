@@ -4,10 +4,11 @@ import Footer from "./components/Footer";
 import HeroIntro from './components/AboutUs';
 import FeatureGrid from './components/FeatureGrid';
 import ProductGallery from './components/ProductGallery';
-import Benefits from './components/Benefits';
+import WindowGallery from './components/WindowGallery';
 import CTA from './components/CTA';
 import TrustSignals from './components/TrustSignals';
 import ContactUs from './components/ContactUs';
+import Badges from './components/Badges';
 
 export default function Home() {
   return (
@@ -20,10 +21,11 @@ export default function Home() {
         <HeroIntro />
         <FeatureGrid />
         <ProductGallery />
-        <Benefits />
-        <CTA />
+        <WindowGallery />
+        {/* <CTA /> */}
         {/* <TrustSignals /> */}
         <ContactUs />
+        <Badges />
       </main>
 
       <Footer />

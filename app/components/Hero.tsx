@@ -60,7 +60,7 @@ function MobileHero() {
       <div className="absolute inset-0 z-10 flex items-center justify-center">
         <div className="max-w-2xl text-white text-center px-6">
           <p className="text-4xl sm:text-5xl font-extrabold leading-tight">{HERO_TITLE}</p>
-          <p className="mt-4 text-sm max-w-xs">{HERO_DESCRIPTION_MOBILE}</p>
+          <p className="mt-4 text-sm">{HERO_DESCRIPTION_MOBILE}</p>
         </div>
       </div>
     </section>
@@ -68,13 +68,27 @@ function MobileHero() {
 }
 
 export default function Hero() {
-  const [isMobile, setIsMobile] = useState(false);
+  const getInitialMobile = () => {
+    if (typeof window === 'undefined') return false;
+    const mq = window.matchMedia?.('(max-width: 639px)');
+    return mq ? mq.matches : window.innerWidth < 640;
+  };
+
+  const [isMobile, setIsMobile] = useState<boolean>(getInitialMobile);
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 640);
-    check();
-    window.addEventListener('resize', check, { passive: true });
-    return () => window.removeEventListener('resize', check);
+    if (typeof window === 'undefined') return;
+    const mq = window.matchMedia('(max-width: 639px)');
+    const handler = (e: MediaQueryListEvent | MediaQueryList) => setIsMobile('matches' in e ? e.matches : mq.matches);
+
+    // prefer addEventListener, fallback to addListener for older browsers
+    if (mq.addEventListener) mq.addEventListener('change', handler as EventListener);
+    else mq.addListener(handler as (this: MediaQueryList, ev: MediaQueryListEvent) => any);
+
+    return () => {
+      if (mq.removeEventListener) mq.removeEventListener('change', handler as EventListener);
+      else mq.removeListener(handler as (this: MediaQueryList, ev: MediaQueryListEvent) => any);
+    };
   }, []);
 
   return isMobile ? <MobileHero /> : <DesktopHero images={images} />;

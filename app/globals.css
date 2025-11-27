@@ -3,9 +3,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #0b3d91; /* dark blue */
-  --primary-dark: #093375; /* darker for hover */
-  --secondary: #5fb3ff; /* light blue */
+  --primary: #2596be; /* teal-blue */
+  --primary-dark: #1f6f94; /* darker teal for hover */
+  --secondary: #ffb86b; /* warm amber */
+  --tertiary: #7ad1c6; /* mint accent */
+  --window-card-bg: transparent; /* background for window gallery cards (changeable) */
+  --window-card-text: #ffffff; /* text color for window gallery cards (changeable) */
+  --bg-dark: #032333; /* site dark background for header/utility bar */
 }
 
 @theme inline {
@@ -95,13 +99,18 @@ section.mx-auto.max-w-7xl.px-4,
 /* Reusable elevated card style used across the site */
 .card {
   background: #ffffff;
-  border-radius: 0.75rem;
+  border-radius: 0.25rem;
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 20px rgba(15, 23, 42, 0.12);
+}
+
+/* Keep product cards with softer radius */
+.product-card {
+  border-radius: 0.75rem !important;
 }
 
 /* Constrained readable text width for long paragraphs */
@@ -121,5 +130,64 @@ section.mx-auto.max-w-7xl.px-4,
   display: block;
   width: 100%;
   height: 64px;
+}
+
+/* Header viewport overrides: keep header dark on small screens via CSS (no runtime JS needed) */
+.site-header {
+  background-color: var(--background);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+.compact-header {
+  transition: all 300ms ease;
+}
+
+@media (max-width: 639px) {
+  .site-header {
+    background-color: var(--bg-dark) !important;
+    color: #fff;
+  }
+  .site-header .mobile-menu-button {
+    color: #fff !important;
+  }
+  .site-header .mx-auto.max-w-7xl.px-4 {
+    color: #fff;
+  }
+}
+
+/* Subtle entry animation used by multiple components (fade + slight upward translate) */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-entry {
+  opacity: 0;
+  transform: translateY(8px);
+  animation-name: fadeUp;
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(.2,.8,.2,1);
+  animation-fill-mode: both;
+  animation-delay: var(--entry-delay, 0ms);
+}
+
+.reduce-motion .animate-entry {
+  animation: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-entry {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
 

@@ -12,12 +12,12 @@ type Props = {
 
 export default function ContactItem({ icon, label, children, href, className = '' }: Props) {
   return (
-    <div className={`flex items-start gap-3 ${className}`}>
-      <div className="mt-1 text-primary">{icon}</div>
+    <div className={`flex flex-col items-center text-center gap-2 ${className}`}>
+      <div className="text-primary">{icon}</div>
       <div>
         <div className="text-xs text-zinc-500">{label}</div>
         {href ? (
-          <a href={href} className="font-semibold text-zinc-900">
+          <a href={href} className="font-semibold text-zinc-900 block">
             {children}
           </a>
         ) : (

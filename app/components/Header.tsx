@@ -46,9 +46,9 @@ function NavBar({ compact = false, mobileMenuId = 'mobile-menu', menu, open, set
     <div className={`mx-auto max-w-7xl px-4 ${padding} flex items-center justify-between ${compact ? 'text-white' : ''}`}>
       <div className="flex items-center gap-4">
         {compact ? (
-          <Logo size="h-10" />
+          <Logo size="h-15" />
         ) : (
-          <Logo className="sm:hidden" size="h-11" />
+          <Logo className="sm:hidden" size="h-15" />
         )}
       </div>
 
@@ -163,7 +163,7 @@ export default function Header() {
 
       {/* Compact sticky header: appears after scroll */}
       {scrolled && (
-        <header className="compact-header fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-sm" style={{ backgroundColor: 'var(--bg-dark)' }}>
+        <header className="compact-header fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-sm" style={{ backgroundColor: 'rgba(3, 35, 51, 0.9)' }}>
           <NavBar compact={true} mobileMenuId="mobile-menu-compact" menu={menu} open={open} setOpen={setOpen} />
           {/* Mobile menu for compact header */}
           {open && <MobileMenu menu={menu} open={open} setOpen={setOpen} id="mobile-menu-compact" />}

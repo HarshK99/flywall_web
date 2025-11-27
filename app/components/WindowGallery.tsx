@@ -58,7 +58,7 @@ function MobileGallery({ title, items }: { title: string; items: Item[] }) {
   const item = items[index];
 
      return (
-       <section className="w-full py-8" style={{ backgroundColor: '#0b3b61' }}>
+       <section className="w-full py-8" style={{ backgroundColor: 'var(--bg-dark)' }}>
       <div className="mx-auto max-w-7xl px-4">
            <h3 className="text-2xl font-semibold mb-6 text-white">{title}</h3>
 
@@ -128,7 +128,7 @@ function DesktopGallery({ title, items }: { title: string; items: Item[] }) {
   const translate = -(index * (cardWidth + gapPx));
 
   return (
-    <section className="w-full py-8" style={{ backgroundColor: '#0b3b61' }}>
+    <section className="w-full py-8" style={{ backgroundColor: 'var(--bg-dark)' }}>
       <div className="mx-auto max-w-7xl px-4">
         <h3 className="text-2xl font-semibold mb-6 text-white">{title}</h3>
 

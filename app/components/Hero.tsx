@@ -60,7 +60,7 @@ function MobileHero() {
       <div className="absolute inset-0 z-10 flex items-center justify-center">
         <div className="max-w-2xl text-white text-center px-6">
           <p className="text-4xl sm:text-5xl font-extrabold leading-tight">{HERO_TITLE}</p>
-          <p className="mt-4 text-sm max-w-xs">{HERO_DESCRIPTION_MOBILE}</p>
+          <p className="mt-4 text-sm">{HERO_DESCRIPTION_MOBILE}</p>
         </div>
       </div>
     </section>

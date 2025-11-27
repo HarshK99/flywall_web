@@ -20,13 +20,13 @@ export default function Badges() {
           <p className="mt-2 text-sm text-zinc-600">Recognitions and certifications that reflect our quality and compliance.</p>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 items-center justify-items-center">
+        <div className="grid grid-cols-3 sm:grid-cols-6 gap-6 items-center justify-items-center">
           {BADGES.map((b) => (
             <div key={b.id} className="flex items-center justify-center p-2">
               <img
                 src={b.src}
                 alt={b.label}
-                className="h-10 md:h-14 object-contain"
+                className="h-10 md:h-30 object-contain"
                 loading="lazy"
               />
             </div>

@@ -19,7 +19,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-zinc-800 text-zinc-200 border-t border-zinc-800">
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-7">
         <div className="grid grid-cols-1 lg:gap-30 gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {/* Brand Section */}
           <div className="flex flex-col gap-3">

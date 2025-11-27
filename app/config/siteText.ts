@@ -33,8 +33,8 @@ export const FOOTER_SUPPORT_EMAIL = CONTACT_EMAIL;
 export const FOOTER_NOTE = 'North East people\'s first choice for uPVC window & door materials';
 
 // Hero
-export const HERO_TITLE = 'Flywall uPVC profiles';
-export const HERO_SUBTITLE = 'The smarter choice';
+export const HERO_TITLE = 'Flywall uPVC Profiles';
+export const HERO_SUBTITLE = 'The Smarter Choice';
 export const HERO_DESCRIPTION = `Goodbye to rot, rust & termites. Flywall uPVC profiles provide long-lasting,
 low-maintenance side frames engineered for strength, precision and energy efficiency. Trusted across the North East for fabrication-grade performance. Made as per German standards, high UV resistant and lead free.`;
 export const HERO_DESCRIPTION_MOBILE = 'Durable, low-maintenance uPVC profiles — rot, rust and termite resistant. German-standard, UV resistant, lead free.';
@@ -45,7 +45,7 @@ export const HERO_REQUEST_LABEL = 'Request consultation';
 export const CTA_INTRO = 'Click to schedule a one-to-one demo with our team';
 
 // About / Intro
-export const ABOUT_TITLE = 'Flywall uPVC windows & doors';
+export const ABOUT_TITLE = 'Flywall uPVC Windows & Doors';
 export const ABOUT_DESC = `Flywall by North East Fiber supplies high-quality uPVC profiles designed for durability,
 weather resistance and low maintenance. Our profiles are 100% resistant to rot and rust and engineered to resist termites and insects.
 Built for fabricators who need consistent strength, precise tolerances and a choice of colours and finishes.`;

@@ -135,7 +135,11 @@ section.mx-auto.max-w-7xl.px-4,
 /* Header viewport overrides: keep header dark on small screens via CSS (no runtime JS needed) */
 .site-header {
   background-color: var(--background);
-  transition: background-color 200ms ease, color 200ms ease;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+.compact-header {
+  transition: all 300ms ease;
 }
 
 @media (max-width: 639px) {

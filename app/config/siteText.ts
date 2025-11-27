@@ -121,6 +121,9 @@ export const SOCIAL_LINKS: { name: string; href: string }[] = [
   { name: 'LinkedIn', href: 'https://www.linkedin.com/company/flywall' },
 ];
 
+// Google review URL for the business (configure to your GMB review link)
+export const FOOTER_GOOGLE_REVIEW = 'https://g.page/r/?review=1';
+
 // Contact / Support copy
 export const CONTACT_HEADLINE = 'Get in touch';
 export const CONTACT_SUBTEXT = 'Our team is ready to answer queries and help fabricators select the right profiles';

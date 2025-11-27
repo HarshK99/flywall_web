@@ -11,7 +11,8 @@ import {
   FOOTER_COPYRIGHT,
   LOGO_ALT,
 } from "../config/siteText";
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaInstagram, FaFacebookF, FaGoogle } from 'react-icons/fa';
+import { SOCIAL_LINKS, FOOTER_GOOGLE_REVIEW } from '../config/siteText';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -70,6 +71,48 @@ export default function Footer() {
                   <FaEnvelope className="h-4 w-4 flex-shrink-0 text-zinc-300 hover:text-primary" aria-hidden />
                   <span>{FOOTER_SUPPORT_EMAIL}</span>
                 </a>
+              </div>
+            </div>
+
+            <div className="mt-4">
+              <div className="text-sm font-semibold text-zinc-100 mb-2">Follow & Reviews</div>
+              <div className="flex items-center gap-4">
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(FOOTER_MAP_QUERY)}`}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex items-center justify-center h-9 w-9 rounded-md text-zinc-300 hover:text-primary"
+                  aria-label="Open in Google Maps"
+                >
+                  <FaMapMarkerAlt className="h-4 w-4" />
+                </a>
+
+                {/* Instagram */}
+                {(() => {
+                  const ig = SOCIAL_LINKS.find((s) => s.name.toLowerCase() === 'instagram');
+                  return ig ? (
+                    <a href={ig.href} target="_blank" rel="noreferrer noopener" className="inline-flex items-center justify-center h-9 w-9 rounded-md text-zinc-300 hover:text-primary" aria-label="Instagram">
+                      <FaInstagram className="h-4 w-4" />
+                    </a>
+                  ) : null;
+                })()}
+
+                {/* Facebook */}
+                {(() => {
+                  const fb = SOCIAL_LINKS.find((s) => s.name.toLowerCase() === 'facebook');
+                  return fb ? (
+                    <a href={fb.href} target="_blank" rel="noreferrer noopener" className="inline-flex items-center justify-center h-9 w-9 rounded-md text-zinc-300 hover:text-primary" aria-label="Facebook">
+                      <FaFacebookF className="h-4 w-4" />
+                    </a>
+                  ) : null;
+                })()}
+
+                {/* Google Review */}
+                {FOOTER_GOOGLE_REVIEW ? (
+                  <a href={FOOTER_GOOGLE_REVIEW} target="_blank" rel="noreferrer noopener" className="inline-flex items-center justify-center h-9 w-9 rounded-md text-zinc-300 hover:text-primary" aria-label="Google Review">
+                    <FaGoogle className="h-4 w-4" />
+                  </a>
+                ) : null}
               </div>
             </div>
           </div>

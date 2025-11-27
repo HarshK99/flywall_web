@@ -40,7 +40,7 @@ function NavLinks({ menu, className = '', onClick, dark = false }: { menu: { lab
 
 function NavBar({ compact = false, mobileMenuId = 'mobile-menu', menu, open, setOpen }: { compact?: boolean; mobileMenuId?: string; menu: { label: string; href: string }[]; open: boolean; setOpen: (v: boolean) => void }) {
   const dark = compact; // compact is always dark
-  const padding = compact ? 'py-2' : 'py-3';
+  const padding = compact ? '' : 'py-3';
 
   return (
     <div className={`mx-auto max-w-7xl px-4 ${padding} flex items-center justify-between ${compact ? 'text-white' : ''}`}>

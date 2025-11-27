@@ -8,6 +8,7 @@ import WindowGallery from './components/WindowGallery';
 import CTA from './components/CTA';
 import TrustSignals from './components/TrustSignals';
 import ContactUs from './components/ContactUs';
+import Badges from './components/Badges';
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         {/* <CTA /> */}
         {/* <TrustSignals /> */}
         <ContactUs />
+        <Badges />
       </main>
 
       <Footer />

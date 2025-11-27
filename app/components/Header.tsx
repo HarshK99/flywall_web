@@ -95,15 +95,19 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const scrolled = useScrollThreshold(80);
   const menu = MENU;
+  // viewport-based styling handled via CSS media queries rather than runtime state
 
   return (
-    <header className={`sticky top-0 z-50 w-full backdrop-blur-sm relative`} style={{ backgroundColor: scrolled ? 'var(--bg-dark)' : 'var(--background)' }}>
+    <header
+      className={`site-header sticky top-0 z-50 w-full backdrop-blur-sm relative`}
+      style={scrolled ? { backgroundColor: 'var(--bg-dark)' } : undefined}
+    >
       {/* Top utility bar: hidden smoothly when scrolled to avoid flicker/layout jumps */}
       <div className={`hidden sm:block text-white transition-all duration-200 ease-in-out overflow-hidden ${scrolled ? 'opacity-0 -translate-y-2 max-h-0 pointer-events-none' : 'opacity-100 translate-y-0 max-h-40'}`} style={{ backgroundColor: 'var(--bg-dark)' }}>
-        <div className="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
+        <div className="mx-auto max-w-7xl px-4 flex items-center justify-between text-sm">
           <div className="flex items-center gap-4">
             {/* Logo moved into the utility bar */}
-            <Logo className="flex items-center gap-3" size="h-10" />
+            <Logo className="flex items-center gap-1" size="h-15" />
           </div>
 
           <div className="flex items-center gap-4">
@@ -139,7 +143,7 @@ export default function Header() {
           {/* mobile logo: show on small screens where utility bar is hidden */}
           <Logo className="sm:hidden" size={scrolled ? 'h-9' : 'h-11'} />
           {/* desktop logo for sticky header when scrolled */}
-          {scrolled && <Logo className="hidden sm:flex" size="h-9" />}
+          {scrolled && <Logo className="hidden sm:flex" size="h-12" />}
         </div>
 
         <NavLinks menu={menu} className="hidden lg:flex items-center gap-4 text-sm" dark={scrolled} />
@@ -149,7 +153,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className={`lg:hidden inline-flex items-center justify-center rounded-md p-2 ${scrolled ? 'text-white hover:bg-white/10' : 'text-zinc-700 hover:bg-zinc-100 sm:hover:bg-white/10'}`}
+            className={`lg:hidden mobile-menu-button inline-flex items-center justify-center rounded-md p-2 ${scrolled ? 'text-white hover:bg-white/10' : 'text-zinc-700 hover:bg-zinc-100 sm:hover:bg-white/10'}`}
             aria-controls="mobile-menu"
             aria-expanded={open}
             onClick={() => setOpen((s) => !s)}

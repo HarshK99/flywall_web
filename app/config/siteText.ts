@@ -17,7 +17,7 @@ export const MENU: { label: string; href: string }[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/company' },
   { label: 'Products', href: '/products' },
-  { label: 'Applications', href: '/applications' },
+  // { label: 'Applications', href: '/applications' },
   { label: 'Contact', href: '#contact' },
 ];
 

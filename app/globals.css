@@ -132,6 +132,25 @@ section.mx-auto.max-w-7xl.px-4,
   height: 64px;
 }
 
+/* Header viewport overrides: keep header dark on small screens via CSS (no runtime JS needed) */
+.site-header {
+  background-color: var(--background);
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+@media (max-width: 639px) {
+  .site-header {
+    background-color: var(--bg-dark) !important;
+    color: #fff;
+  }
+  .site-header .mobile-menu-button {
+    color: #fff !important;
+  }
+  .site-header .mx-auto.max-w-7xl.px-4 {
+    color: #fff;
+  }
+}
+
 /* Subtle entry animation used by multiple components (fade + slight upward translate) */
 @keyframes fadeUp {
   from {

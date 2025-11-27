@@ -5,7 +5,6 @@ import HeroIntro from './components/AboutUs';
 import FeatureGrid from './components/FeatureGrid';
 import ProductGallery from './components/ProductGallery';
 import WindowGallery from './components/WindowGallery';
-import Benefits from './components/Benefits';
 import CTA from './components/CTA';
 import TrustSignals from './components/TrustSignals';
 import ContactUs from './components/ContactUs';
@@ -22,8 +21,7 @@ export default function Home() {
         <FeatureGrid />
         <ProductGallery />
         <WindowGallery />
-        <Benefits />
-        <CTA />
+        {/* <CTA /> */}
         {/* <TrustSignals /> */}
         <ContactUs />
       </main>

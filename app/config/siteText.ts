@@ -36,8 +36,8 @@ export const FOOTER_NOTE = 'North East people\'s first choice for uPVC window & 
 export const HERO_TITLE = 'Flywall uPVC profiles';
 export const HERO_SUBTITLE = 'The smarter choice';
 export const HERO_DESCRIPTION = `Goodbye to rot, rust & termites. Flywall uPVC profiles provide long-lasting,
-low-maintenance side frames engineered for strength, precision and energy efficiency. Trusted across the North East for fabrication-grade performance.`;
-export const HERO_DESCRIPTION_MOBILE = 'Durable, low-maintenance uPVC profiles — rot, rust and termite resistant.';
+low-maintenance side frames engineered for strength, precision and energy efficiency. Trusted across the North East for fabrication-grade performance. Made as per German standards, high UV resistant and lead free.`;
+export const HERO_DESCRIPTION_MOBILE = 'Durable, low-maintenance uPVC profiles — rot, rust and termite resistant. German-standard, UV resistant, lead free.';
 export const HERO_EXPLORE_LABEL = 'Explore products';
 export const HERO_REQUEST_LABEL = 'Request consultation';
 
@@ -52,15 +52,19 @@ Built for fabricators who need consistent strength, precise tolerances and a cho
 
 // Feature grid
 export const FEATURES: { title: string; desc: string; icon?: string }[] = [
-  { title: 'Rot, rust & termite resistant', desc: 'Profiles engineered to resist biological and corrosion damage for a longer service life', icon: 'shield' },
-  { title: 'Energy-efficient & weatherproof', desc: 'Designed to improve thermal and weather performance, reducing drafts and heat loss', icon: 'energy' },
-  { title: 'Durable & strong', desc: 'Precision-engineered profiles that withstand daily use and diverse climatic conditions', icon: 'build' },
-  { title: 'Colour & finish options', desc: 'Available in multiple colours and realistic wood textures to match design needs', icon: 'palette' },
+  { title: 'Rot, Rust & Termite Resistant', desc: 'Profiles engineered to resist biological and corrosion damage for a longer service life', icon: 'shield' },
+  { title: 'Energy-Efficient & Weatherproof', desc: 'Designed to improve thermal and weather performance, reducing drafts and heat loss', icon: 'energy' },
+  { title: 'Durable & Strong', desc: 'Precision-engineered profiles that withstand daily use and diverse climatic conditions', icon: 'build' },
+  { title: 'Colour & Finish Options', desc: 'Available in multiple colours and realistic wood textures to match design needs', icon: 'palette' },
+  { title: 'Made as per German Standards', desc: 'Manufactured and tested to respected German norms for consistent quality', icon: 'certificate' },
+  { title: 'High UV Resistance', desc: 'UV-stable profiles that resist fading and degradation in strong sunlight', icon: 'sun' },
+  { title: 'Lead Free', desc: 'Formulated without lead for safer installations and environmental compliance', icon: 'leaf' },
+
 ];
 
 // Product gallery
-export const PRODUCT_WINDOWS_TITLE = 'Window profiles';
-export const PRODUCT_DOORS_TITLE = 'Door profiles';
+export const PRODUCT_WINDOWS_TITLE = 'Window Profiles';
+export const PRODUCT_DOORS_TITLE = 'Door Profiles';
 export const PRODUCT_WINDOWS: { label: string; img: string }[] = [
   { label: 'Dark Oak', img: '/products_styles/1.png' },
   { label: 'Golden Oak', img: '/products_styles/2.png' },
@@ -77,7 +81,7 @@ export const PRODUCT_DOORS: { label: string; img: string }[] = [
 ];
 
 // Window styles gallery (used by WindowGallery component)
-export const WINDOW_STYLES_TITLE = 'Window styles';
+export const WINDOW_STYLES_TITLE = 'Window Styles';
 export const WINDOW_STYLES: { label: string; img: string }[] = [
   { label: 'Sliding', img: '/window_styles/sliding.png' },
   { label: 'Casement', img: '/window_styles/casement.png' },
@@ -88,13 +92,6 @@ export const WINDOW_STYLES: { label: string; img: string }[] = [
   { label: 'Ventilator', img: '/window_styles/ventilator.png' },
 ];
 
-// Benefits (expanded with poster claims)
-export const BENEFITS: { title: string; desc: string; icon?: string }[] = [
-  { title: 'Minimal maintenance', desc: 'No painting, no rust treatment and minimal upkeep across years', icon: 'tools' },
-  { title: 'Termite & insect resistance', desc: 'Built from uPVC material that does not attract or sustain termite damage', icon: 'bug' },
-  { title: 'No rot or rust', desc: '100% resistant to rot and rust for long service life', icon: 'water' },
-  { title: 'Thermal and acoustic insulation', desc: 'Improved comfort and lower energy bills through better insulation', icon: 'headphones' },
-];
 
 // Trust signals
 export const TRUST_YEARS = '25+ Years Experience';
@@ -144,6 +141,9 @@ export const KEY_HIGHLIGHTS: string[] = [
   '100% resistant to rot & rust',
   'Energy-efficient and weatherproof',
   'Available in colour of choice',
+  'Made as per German standards',
+  'High UV resistant',
+  'Lead free',
 ];
 
 export const LEGAL_COPY = 'All product dimensions and specifications are indicative and may vary. Contact us for technical datasheets and fabrication guidelines.';

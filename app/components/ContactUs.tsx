@@ -16,7 +16,7 @@ export default function ContactUs() {
         <div>
           <Card className="p-6">
             <h3 className="text-xl font-semibold">Send an Enquiry</h3>
-            <p className="mt-2 text-sm text-zinc-600">Share a few details and we'll get back within one business day.</p>
+            <p className="mt-2 text-sm text-zinc-600 text-center">Share a few details and we'll get back within one business day.</p>
           </Card>
 
           <div className="mt-6">

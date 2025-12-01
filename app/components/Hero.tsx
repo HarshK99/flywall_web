@@ -68,29 +68,15 @@ function MobileHero() {
 }
 
 export default function Hero() {
-  const getInitialMobile = () => {
-    if (typeof window === 'undefined') return false;
-    const mq = window.matchMedia?.('(max-width: 639px)');
-    return mq ? mq.matches : window.innerWidth < 640;
-  };
-
-  const [isMobile, setIsMobile] = useState<boolean>(getInitialMobile);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const mq = window.matchMedia('(max-width: 639px)');
-    const handler = (e: MediaQueryListEvent | MediaQueryList) => setIsMobile('matches' in e ? e.matches : mq.matches);
-
-    // prefer addEventListener, fallback to addListener for older browsers
-    if (mq.addEventListener) mq.addEventListener('change', handler as EventListener);
-    else mq.addListener(handler as (this: MediaQueryList, ev: MediaQueryListEvent) => any);
-
-    return () => {
-      if (mq.removeEventListener) mq.removeEventListener('change', handler as EventListener);
-      else mq.removeListener(handler as (this: MediaQueryList, ev: MediaQueryListEvent) => any);
-    };
-  }, []);
-
-  return isMobile ? <MobileHero /> : <DesktopHero images={images} />;
+  return (
+    <>
+      <div className="md:hidden">
+        <MobileHero />
+      </div>
+      <div className="hidden md:block">
+        <DesktopHero images={images} />
+      </div>
+    </>
+  );
 }
 

@@ -18,8 +18,8 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-zinc-900 text-zinc-200 border-t border-zinc-800">
-      <div className="mx-auto max-w-7xl px-4 py-12">
+    <footer className="bg-zinc-800 text-zinc-200 border-t border-zinc-800">
+      <div className="mx-auto max-w-7xl px-4 py-7">
         <div className="grid grid-cols-1 lg:gap-30 gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {/* Brand Section */}
           <div className="flex flex-col gap-3">
@@ -119,8 +119,8 @@ export default function Footer() {
 
         </div>
 
-        <div className="mt-8 text-center text-xs text-zinc-500">{FOOTER_COPYRIGHT.replace('2025', String(year))}</div>
       </div>
+      <div className="mt-8 bg-zinc-900 text-center text-xs text-zinc-500 py-4">{FOOTER_COPYRIGHT.replace('2025', String(year))}</div>
     </footer>
   );
 }
